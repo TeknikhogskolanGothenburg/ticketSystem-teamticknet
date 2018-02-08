@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TicketSystem.DatabaseRepository;
+using TicketSystem.DatabaseRepository.Model;
 
 namespace Restapi_Webapplication.Controllers
 {
@@ -19,10 +20,10 @@ namespace Restapi_Webapplication.Controllers
 
 		//Get venue from database HEJEHEJEHJE
 		[HttpGet("{query}")]
-		public List<TicketSystem.DatabaseRepository.Model.Venue> Get(string query)
+		public List<Venue> Get(string query)
 		{
-			
-			return TicketDatabase.VenuesFind(query);
+
+			return TicketDatabase.VenuesFindAny(query);
 		}
 
         // GET api/values/5
