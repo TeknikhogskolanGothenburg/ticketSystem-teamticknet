@@ -18,12 +18,11 @@ namespace Restapi_Webapplication.Controllers
 			return new string[] { "value1", "value2" };
 		}
 
-		//Get venue from database HEJEHEJEHJE
+		//Get api/venues
 		[HttpGet("{query}")]
 		public List<Venue> Get(string query)
 		{
-
-			return TicketDatabase.VenuesFindAny(query);
+			return TicketDatabase.VenuesSpecific(query);
 		}
 
         // GET api/values/5
