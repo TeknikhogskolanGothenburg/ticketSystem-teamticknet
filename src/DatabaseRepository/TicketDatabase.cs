@@ -33,7 +33,7 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        public List<Venue> VenuesFind(string query)
+        public static List<Venue> VenuesFind(string query)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))

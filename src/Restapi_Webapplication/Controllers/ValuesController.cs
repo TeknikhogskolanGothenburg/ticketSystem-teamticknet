@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TicketSystem.DatabaseRepository;
 
 namespace Restapi_Webapplication.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : ControllerBase
-    {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+	[Route("api/[controller]")]
+	public class ValuesController : ControllerBase
+	{
+		// GET api/values
+		[HttpGet]
+		public IEnumerable<string> Get()
+		{
+			return new string[] { "value1", "value2" };
+		}
+
+		//Get venue from database HEJEHEJEHJE
+		[HttpGet("{query}")]
+		public List<TicketSystem.DatabaseRepository.Model.Venue> Get(string query)
+		{
+			
+			return TicketDatabase.VenuesFind(query);
+		}
 
         // GET api/values/5
         [HttpGet("{id}")]
