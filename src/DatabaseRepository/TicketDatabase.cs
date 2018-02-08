@@ -48,11 +48,11 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-
+		static string ConnectionString = "Server=LAPTOP-AMB9IU8B\\SQLEXPRESS;Database=TicketSystem;Trusted_Connection=True;";
         public static List<Venue> VenuesSpecific(string query)
 		{
-			string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
-			using (var connection = new SqlConnection(connectionString))
+			//string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+			using (var connection = new SqlConnection(ConnectionString))
 			{
 				connection.Open();
 				var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR City like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
