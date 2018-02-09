@@ -56,7 +56,6 @@ namespace TicketSystem.DatabaseRepository
 			{
 				connection.Open();
 				var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR City like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
-                connection.Close();
                 return values;
 			}
 		}
