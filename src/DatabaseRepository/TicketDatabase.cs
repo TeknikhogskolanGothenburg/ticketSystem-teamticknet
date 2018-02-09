@@ -48,7 +48,7 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-		static string ConnectionString = "Server=LAPTOP-AMB9IU8B\\SQLEXPRESS;Database=TicketSystem;Trusted_Connection=True;";
+		static string ConnectionString = "Server=ticknetsystem.database.windows.net;Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
         public static List<Venue> VenuesSpecific(string query)
 		{
 			//string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
