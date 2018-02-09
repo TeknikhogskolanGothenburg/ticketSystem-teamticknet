@@ -18,7 +18,7 @@ namespace Restapi_Webapplication.Controllers
 			return new string[] { "value1", "value2" };
 		}
 
-		//Get api/venues
+		//Get api/values
 		[HttpGet("{query}")]
 		public List<Venue> Get(string query)
 		{

@@ -67,7 +67,6 @@ namespace TicketSystem.DatabaseRepository
             {
                 connection.Open();
                 var values = connection.Query<Venue>("SELECT * FROM Venues").ToList();
-                connection.Close();
                 return values;
             }
         }
