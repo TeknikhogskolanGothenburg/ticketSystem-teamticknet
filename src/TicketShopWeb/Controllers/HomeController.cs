@@ -22,9 +22,9 @@ namespace TicketShopWeb.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Venues()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Admin can add venues to database here.";
 
             return View();
         }
