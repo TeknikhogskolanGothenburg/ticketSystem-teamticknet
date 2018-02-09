@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiClient", "RestApiClient\RestApiClient.csproj", "{5480771D-2461-443E-AF88-B81C9EDA5C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketShopWeb", "TicketShopWeb\TicketShopWeb.csproj", "{542E0DBD-259A-4D74-9717-8F3509FBAE9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketShopWeb", "TicketShopWeb\TicketShopWeb.csproj", "{542E0DBD-259A-4D74-9717-8F3509FBAE9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginRegistration", "LoginRegistration\LoginRegistration.csproj", "{71E6F717-0688-4738-899B-74E018C4A4F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{542E0DBD-259A-4D74-9717-8F3509FBAE9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{542E0DBD-259A-4D74-9717-8F3509FBAE9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{542E0DBD-259A-4D74-9717-8F3509FBAE9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E6F717-0688-4738-899B-74E018C4A4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E6F717-0688-4738-899B-74E018C4A4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E6F717-0688-4738-899B-74E018C4A4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E6F717-0688-4738-899B-74E018C4A4F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
