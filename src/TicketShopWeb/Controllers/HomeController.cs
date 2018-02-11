@@ -24,9 +24,13 @@ namespace TicketShopWeb.Controllers
 
         public IActionResult Venues()
         {
-            ViewData["Message"] = "Admin can add venues to database here.";
+            
 
-            return View();
+			// Controllern som ska redirekta oss till POST när admin klickar på submit knappen 
+				return RedirectToRoute("/api", "/Venues", "/POST");
+			
+			
+            
         }
 
         public IActionResult Error()
