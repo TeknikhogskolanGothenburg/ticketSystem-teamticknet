@@ -11,7 +11,7 @@ namespace TicketSystem.DatabaseRepository
     {
         public TicketEvent EventAdd(string name, string description)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            string connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -25,7 +25,7 @@ namespace TicketSystem.DatabaseRepository
 
         public Venue VenueAdd(string name, string address, string city, string country)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            string connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -39,7 +39,7 @@ namespace TicketSystem.DatabaseRepository
 
         public List<Venue> VenuesFind(string query)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
+            string connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -48,10 +48,9 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-		static string ConnectionString = "Server=ticknetsystem.database.windows.net;Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
+        static string ConnectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
         public static List<Venue> VenuesSpecific(string query)
 		{
-			//string connectionString = ConfigurationManager.ConnectionStrings["TicketSystem"].ConnectionString;
 			using (var connection = new SqlConnection(ConnectionString))
 			{
 				connection.Open();
@@ -62,7 +61,7 @@ namespace TicketSystem.DatabaseRepository
 
         public List<Venue> VenuesAll()
         {
-            var connectionString = "Server=(local)\\SqlExpress; Database=TicketSystem; Trusted_connection=true";
+            var connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
