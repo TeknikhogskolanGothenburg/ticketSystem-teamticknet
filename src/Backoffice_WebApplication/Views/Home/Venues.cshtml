@@ -5,10 +5,10 @@
 <h3>@ViewData["Message"]</h3>
 
 <form action="/action_page.php">
-	Venue name: <input type="text" name="Vname"><br>
-	Address: <input type="text" name="Address"><br>
-	City: <input type="text" name="City"><br>
-	Country: <input type="text" name="Country"><br>
+	Venue name: <input type="text" name="Vname" value=""><br>
+	Address: <input type="text" name="Address" value=""><br>
+	City: <input type="text" name="City" value=""><br>
+	Country: <input type="text" name="Country" value=""><br>
 	<button type="button" onclick="location.href='@Url.Action("VenuesPost", "api")'" />
 </form>
 
