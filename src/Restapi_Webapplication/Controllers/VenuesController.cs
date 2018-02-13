@@ -5,19 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TicketSystem.DatabaseRepository;
 using TicketSystem.DatabaseRepository.Model;
-using Microsoft.Extensions.Configuration;
 
 namespace Restapi_Webapplication.Controllers
 {
 	[Route("api/[controller]")]
 	public class VenuesController : ControllerBase
 	{
-        private readonly IConfiguration configuration;
-        public Homecontroller(IConfiguration config)
-        {
-           configuration = config;
-        }
-
         // GET api/Venues
         [HttpGet]
 		public IEnumerable<string> Get()
