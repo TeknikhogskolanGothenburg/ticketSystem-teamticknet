@@ -11,7 +11,7 @@ namespace TicketSystem.DatabaseRepository
     {
         public TicketEvent EventAdd(string name, string description)
         {
-            string connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
+            string connectionString = DatabaseConnection.ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -25,7 +25,7 @@ namespace TicketSystem.DatabaseRepository
 
         public Venue VenueAdd(string name, string address, string city, string country)
         {
-            string connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
+            string connectionString = DatabaseConnection.ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -39,7 +39,7 @@ namespace TicketSystem.DatabaseRepository
 
         public List<Venue> VenuesFind(string query)
         {
-            string connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
+            string connectionString = DatabaseConnection.ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -61,7 +61,7 @@ namespace TicketSystem.DatabaseRepository
 
         public List<Venue> VenuesAll()
         {
-            var connectionString = "Server = ticknetsystem.database.windows.net; Database=TicketSystem;Uid=Sheetz;Pwd=Hardcore231;";
+            var connectionString = DatabaseConnection.ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
