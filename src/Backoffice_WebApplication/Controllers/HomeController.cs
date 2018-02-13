@@ -24,17 +24,7 @@ namespace TicketShopWeb.Controllers
 
         public IActionResult Venues(string name, string address, string city, string country)
         {
-            if (!(Request.Form["Vname"] == ""))
-            {
-                name = Request.Form["Vname"];
-                address = Request.Form["Address"];
-                city = Request.Form["City"];
-                country = Request.Form["Country"];
-
-                return RedirectToRoute("/api", "/VenuesPost");
-
-            }
-            return View("/Home", "/Venues");
+			return View();
 
 
             // Controllern som ska redirekta oss till POST när admin klickar på submit knappen 
