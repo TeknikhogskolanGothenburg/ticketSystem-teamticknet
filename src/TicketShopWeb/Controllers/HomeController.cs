@@ -31,7 +31,7 @@ namespace TicketShopWeb.Controllers
 				city = Request.Form["City"];
 				country = Request.Form["Country"];
 
-				return RedirectToRoute("/api", "/Venues", "/POST");
+				return RedirectToRoute("/api", "/VenuesPost");
 
 			}
 			return View("/Home", "/Venues");
