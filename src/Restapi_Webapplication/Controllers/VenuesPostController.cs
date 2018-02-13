@@ -17,7 +17,7 @@ namespace Restapi_Webapplication.Controllers
 		[HttpPost]
 			 public void Post([FromBody]string value)
 		{
-			return database.VenueAdd(Request.Form["Vname"],  )
+			//return database.VenueAdd(Request.Form["Vname"],  )
 		 }
 }
 }
