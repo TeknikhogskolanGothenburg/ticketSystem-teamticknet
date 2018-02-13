@@ -8,15 +8,15 @@ using TicketSystem.DatabaseRepository.Model;
 
 namespace Restapi_Webapplication.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/[controller]/Get")]
 	public class VenuesController : ControllerBase
 	{
-        // GET api/Venues
-        [HttpGet]
-		public IEnumerable<string> Get()
-		{
-			return new string[] { "value1", "value2" };
-		}
+  //      // GET api/Venues
+  //      [HttpGet]
+		//public IEnumerable<string> Get()
+		//{
+		//	return new string[] { "value1", "value2" };
+		//}
 
 		//Get api/Venues
 		[HttpGet("{query}")]
@@ -28,23 +28,23 @@ namespace Restapi_Webapplication.Controllers
 		TicketDatabase database = new TicketDatabase();
 
 
-        // POST api/Venues
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-			return database.VenueAdd(["Vname"].value, ["Address"].value, )
-        }
+   //     // POST api/Venues
+   //     [HttpPost]
+   //     public void Post([FromBody]string value)
+   //     {
+			//return database.VenueAdd(["Vname"].value, ["Address"].value, )
+   //     }
 
-        // PUT api/Venues/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+   //     // PUT api/Venues/5
+   //     [HttpPut("{id}")]
+   //     public void Put(int id, [FromBody]string value)
+   //     {
+   //     }
 
-        // DELETE api/Venues/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+   //     // DELETE api/Venues/5
+   //     [HttpDelete("{id}")]
+   //     public void Delete(int id)
+   //     {
+   //     }
     }
 }
