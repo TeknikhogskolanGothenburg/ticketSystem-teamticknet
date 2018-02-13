@@ -22,12 +22,23 @@ namespace TicketShopWeb.Controllers
             return View();
         }
 
-        public IActionResult Venues()
+        public IActionResult Venues(string name, string address, string city, string country)
         {
-            
+         if (!(Request.Form["Vname"] == ""))
+			{
+				name = Request.Form["Vname"];
+				address = Request.Form["Address"];
+				city = Request.Form["City"];
+				country = Request.Form["Country"];
+
+				return RedirectToRoute("/api", "/Venues", "/POST");
+
+			}
+			return View("/Home", "/Venues");
+			
 
 			// Controllern som ska redirekta oss till POST när admin klickar på submit knappen 
-				return RedirectToRoute("/api", "/Venues", "/POST");
+				//return RedirectToRoute("/api", "/Venues", "/POST");
 			
 			
             

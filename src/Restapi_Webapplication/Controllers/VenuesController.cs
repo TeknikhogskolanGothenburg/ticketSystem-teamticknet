@@ -32,11 +32,14 @@ namespace Restapi_Webapplication.Controllers
 			return TicketDatabase.VenuesSpecific(query);
 		}
 
+		TicketDatabase database = new TicketDatabase();
+
 
         // POST api/Venues
         [HttpPost]
         public void Post([FromBody]string value)
         {
+			return database.VenueAdd(["Vname"].value, ["Address"].value, )
         }
 
         // PUT api/Venues/5
