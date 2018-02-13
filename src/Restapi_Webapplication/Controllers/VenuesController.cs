@@ -25,7 +25,7 @@ namespace Restapi_Webapplication.Controllers
 			return TicketDatabase.VenuesSpecific(query);
 		}
 
-		TicketDatabase database = new TicketDatabase();
+		
 
 
    //     // POST api/Venues
