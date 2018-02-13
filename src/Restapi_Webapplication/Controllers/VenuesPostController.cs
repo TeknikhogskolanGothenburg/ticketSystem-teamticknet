@@ -8,17 +8,18 @@ using TicketSystem.DatabaseRepository.Model;
 
 namespace Restapi_Webapplication.Controllers
 {
-    //[Produces("application/json")]
-    //[Route("api/[controller]")]
-    //public class VenuesPostController : Controller
-    //{
-    //    TicketDatabase database = new TicketDatabase();
-    //    //POST api/Venues
-    //    [HttpPost]
-    //    public void Post([FromBody]string value)
-    //    {
-    //        return database.VenueAdd(Request.Form["Vname"],  )
+	[Produces("application/json")]
+	[Route("api/[controller]")]
+	public class VenuesPostController : Controller
+	{
+		TicketDatabase database = new TicketDatabase();
+		//    //POST api/Venues
+		[HttpPost]
+		public void Post([FromBody]string value)
+		{
+			 database.VenueAdd(Request.Form["Vname"], Request.Form["Address"], Request.Form["City"], Request.Form["Country"]);
 
-    //     }
-    //}
+
+		}
+	}
 }

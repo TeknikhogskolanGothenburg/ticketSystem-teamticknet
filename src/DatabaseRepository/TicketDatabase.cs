@@ -9,9 +9,10 @@ namespace TicketSystem.DatabaseRepository
 {
     public class TicketDatabase : ITicketDatabase
     {
+        static string ConnectionString = DatabaseConnection.ConnectionString;
         public TicketEvent EventAdd(string name, string description)
         {
-            string connectionString = DatabaseConnection.ConnectionString;
+            string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -25,7 +26,7 @@ namespace TicketSystem.DatabaseRepository
 
         public Venue VenueAdd(string name, string address, string city, string country)
         {
-            string connectionString = DatabaseConnection.ConnectionString;
+            string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -39,7 +40,7 @@ namespace TicketSystem.DatabaseRepository
 
         public List<Venue> VenuesFind(string query)
         {
-            string connectionString = DatabaseConnection.ConnectionString;
+            string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -48,7 +49,7 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-        static string ConnectionString = DatabaseConnection.ConnectionString;
+        
         public static List<Venue> VenuesSpecific(string query)
 		{
 			using (var connection = new SqlConnection(ConnectionString))
@@ -61,7 +62,7 @@ namespace TicketSystem.DatabaseRepository
 
         public List<Venue> VenuesAll()
         {
-            var connectionString = DatabaseConnection.ConnectionString;
+            var connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -69,5 +70,7 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
+       
+        
     }
 }
