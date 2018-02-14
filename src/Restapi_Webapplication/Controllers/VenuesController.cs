@@ -9,6 +9,7 @@ using ClassLibraryTicketShop;
 
 namespace Restapi_Webapplication.Controllers
 {
+	[Produces("application/json")]
 	[Route("api/Venues")]
 	public class VenuesController : ControllerBase
 	{

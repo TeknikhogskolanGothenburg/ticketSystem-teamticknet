@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using TicketSystem.DatabaseRepository;
 using ClassLibraryTicketShop;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Restapi_Webapplication.Controllers
 {
@@ -16,9 +18,10 @@ namespace Restapi_Webapplication.Controllers
 		TicketDatabase database = new TicketDatabase();
 		//POST api/Venues
 		[HttpPost]
-		public void Post([FromBody]string value)
+		public void Post([FromBody]JObject data)
 		{
-			 database.VenueAdd(Request.Form["Vname"], Request.Form["Address"], Request.Form["City"], Request.Form["Country"]);
+				Venue venue = data["Venue"].ToObject<Venue>();
+			 database.VenueAdd(venue.VenueName, venue.Address, venue.City, venue.Country);
 
 
 		}

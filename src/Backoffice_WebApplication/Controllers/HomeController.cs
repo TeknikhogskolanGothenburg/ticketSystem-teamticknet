@@ -17,10 +17,13 @@ namespace TicketShopWeb.Controllers
     {
         public IActionResult Index()
         {
+
 			TicketApi ticketApi = new TicketApi();
-			List<Venue> sum = ticketApi.GetVenue("Te");
-            return View();
-        }
+			List<TicketEvent> getEvent = ticketApi.GetEvent("He");
+			return View(getEvent);
+			//List<Venue> sum = ticketApi.GetVenue("Te");
+			//         return View();
+		}
 
         public IActionResult About()
         {
