@@ -48,6 +48,21 @@ namespace TicketSystem.RestApiClient
 			return response.Data;
 		}
 
+		public List<TicketEvent> GetEvent (string query)
+		{
+			var client = new RestClient("http://localhost:61828/api/");
+			var request = new RestRequest("Event/{query}", Method.GET);
+			request.AddUrlSegment("query", query);
+			var response = client.Execute<List<TicketEvent>>(request);
+
+			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+			{
+				throw new KeyNotFoundException(string.Format("Ticket with ID: {0} is not found", query));
+			}
+
+			return response.Data;
+		}
+
 
 	}
 }

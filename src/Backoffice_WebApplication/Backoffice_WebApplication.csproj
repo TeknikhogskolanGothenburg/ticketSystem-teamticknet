@@ -17,4 +17,10 @@
     <ProjectReference Include="..\RestApiClient\RestApiClient.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="DatabaseRepository">
+      <HintPath>..\DatabaseRepository\bin\Debug\netstandard2.0\DatabaseRepository.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

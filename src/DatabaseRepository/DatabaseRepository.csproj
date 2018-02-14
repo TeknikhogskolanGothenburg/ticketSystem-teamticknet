@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryTicketShop\ClassLibraryTicketShop.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="ClassLibraryTicketShop">
       <HintPath>..\ClassLibraryTicketShop\obj\Debug\netstandard2.0\ClassLibraryTicketShop.dll</HintPath>
     </Reference>
