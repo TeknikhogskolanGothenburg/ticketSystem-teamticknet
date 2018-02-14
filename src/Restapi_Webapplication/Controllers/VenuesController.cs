@@ -9,7 +9,7 @@ using TicketSystem.DatabaseRepository.Model;
 
 namespace Restapi_Webapplication.Controllers
 {
-	[Route("api/[controller]/Get")]
+	[Route("api/Venues")]
 	public class VenuesController : ControllerBase
 	{
   //      // GET api/Venues

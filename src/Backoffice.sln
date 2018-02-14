@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiClient", "RestApiClient\RestApiClient.csproj", "{89F216FB-2EC3-4635-83C4-15386501FC7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backoffice_WebApplication", "Backoffice_WebApplication\Backoffice_WebApplication.csproj", "{6CAD843C-40D7-4CDE-9199-011CB9A64B6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backoffice_WebApplication", "Backoffice_WebApplication\Backoffice_WebApplication.csproj", "{6CAD843C-40D7-4CDE-9199-011CB9A64B6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryTicketShop", "ClassLibraryTicketShop\ClassLibraryTicketShop.csproj", "{4EB3B143-F952-4BCD-B645-FB784C30A991}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6CAD843C-40D7-4CDE-9199-011CB9A64B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAD843C-40D7-4CDE-9199-011CB9A64B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAD843C-40D7-4CDE-9199-011CB9A64B6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB3B143-F952-4BCD-B645-FB784C30A991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB3B143-F952-4BCD-B645-FB784C30A991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB3B143-F952-4BCD-B645-FB784C30A991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB3B143-F952-4BCD-B645-FB784C30A991}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Backoffice_WebApplication.Models;
+using TicketSystem.RestApiClient;
+using ClassLibraryTicketShop;
+
+
+
 
 namespace TicketShopWeb.Controllers
 {
@@ -12,6 +17,8 @@ namespace TicketShopWeb.Controllers
     {
         public IActionResult Index()
         {
+			TicketApi ticketApi = new TicketApi();
+			List<Venue> sum = ticketApi.GetVenue("Te");
             return View();
         }
 
@@ -33,6 +40,8 @@ namespace TicketShopWeb.Controllers
 
 
         }
+
+
 
         public IActionResult Error()
         {
