@@ -10,4 +10,10 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ClassLibraryTicketShop">
+      <HintPath>..\ClassLibraryTicketShop\obj\Debug\netstandard2.0\ClassLibraryTicketShop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

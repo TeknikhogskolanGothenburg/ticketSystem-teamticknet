@@ -23,6 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ClassLibraryTicketShop">
+      <HintPath>..\ClassLibraryTicketShop\obj\Debug\netstandard2.0\ClassLibraryTicketShop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="swagger.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

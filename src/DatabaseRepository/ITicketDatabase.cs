@@ -1,5 +1,6 @@
-﻿using TicketSystem.DatabaseRepository.Model;
+﻿using TicketSystem.DatabaseRepository;
 using System.Collections.Generic;
+using ClassLibraryTicketShop;
 
 namespace TicketSystem.DatabaseRepository
 {

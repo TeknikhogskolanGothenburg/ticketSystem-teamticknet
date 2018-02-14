@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using TicketSystem.DatabaseRepository;
-using TicketSystem.DatabaseRepository.Model;
+using ClassLibraryTicketShop;
 
 namespace Restapi_Webapplication.Controllers
 {

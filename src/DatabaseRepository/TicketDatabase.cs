@@ -3,7 +3,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
-using TicketSystem.DatabaseRepository.Model;
+using TicketSystem.DatabaseRepository;
+using ClassLibraryTicketShop;
+
 
 namespace TicketSystem.DatabaseRepository
 {
