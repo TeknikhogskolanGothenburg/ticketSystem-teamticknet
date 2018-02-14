@@ -22,4 +22,10 @@
     <ProjectReference Include="..\PaymentProvider\PaymentProvider.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="swagger.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
