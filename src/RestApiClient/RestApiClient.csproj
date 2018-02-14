@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryTicketShop\ClassLibraryTicketShop.csproj" />
+    <ProjectReference Include="..\DatabaseRepository\DatabaseRepository.csproj" />
   </ItemGroup>
 
 </Project>

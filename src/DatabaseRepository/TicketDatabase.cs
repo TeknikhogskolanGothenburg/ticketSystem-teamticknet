@@ -6,7 +6,6 @@ using Dapper;
 using TicketSystem.DatabaseRepository;
 using ClassLibraryTicketShop;
 
-
 namespace TicketSystem.DatabaseRepository
 {
     public class TicketDatabase : ITicketDatabase
