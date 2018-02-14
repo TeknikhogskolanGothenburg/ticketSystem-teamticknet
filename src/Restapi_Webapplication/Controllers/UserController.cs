@@ -7,11 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Restapi_Webapplication.Controllers
 {
-    [Produces("api/[controller]/Get")]
+    [Produces("api/[controller]")]
     [Route("api/User")]
     public class UserController : Controller
     {
-        // GET: api/User
+        // GET: api/User/Get
+        [Route("Get")]
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -41,6 +42,10 @@ namespace Restapi_Webapplication.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
         }
     }
 }
+
+
+
