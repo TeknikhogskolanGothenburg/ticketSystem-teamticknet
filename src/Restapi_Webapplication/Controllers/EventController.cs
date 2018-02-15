@@ -20,5 +20,11 @@ namespace Restapi_Webapplication.Controllers
 		{
 			return tbd.EventFindSpecifik(query);
 		}
+
+		[HttpPost]
+		public void Post([FromBody]TicketEvent newEvent)
+		{
+			tbd.EventAdd(newEvent.EventName, newEvent.EventHtmlDescription);
+		}
 	}
 }

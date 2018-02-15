@@ -11,6 +11,7 @@ namespace TicketSystem.DatabaseRepository
     public class TicketDatabase : ITicketDatabase
     {
         static string ConnectionString = DatabaseConnection.ConnectionString;
+
         public TicketEvent EventAdd(string name, string description)
         {
             string connectionString = ConnectionString;
