@@ -18,9 +18,6 @@
     <Reference Include="ClassLibraryTicketShop">
       <HintPath>..\ClassLibraryTicketShop\obj\Debug\netstandard2.0\ClassLibraryTicketShop.dll</HintPath>
     </Reference>
-    <Reference Include="DatabaseRepository">
-      <HintPath>..\DatabaseRepository\bin\Debug\netstandard2.0\DatabaseRepository.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

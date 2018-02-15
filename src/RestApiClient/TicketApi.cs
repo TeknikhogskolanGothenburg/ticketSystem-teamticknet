@@ -6,6 +6,7 @@ using ClassLibraryTicketShop;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+
 namespace TicketSystem.RestApiClient
 {
     public class TicketApi : ITicketApi
@@ -63,6 +64,15 @@ namespace TicketSystem.RestApiClient
 			}
 
 			return response.Data;
+		}
+
+		public void VenuesAdd(Venue newVenue)
+		{
+			var output = JsonConvert.SerializeObject(newVenue);
+			var client = new RestClient("http://localhost:61828/api/");
+			var request = new RestRequest("Venues", Method.POST);
+			request.AddParameter("application/json", output, ParameterType.RequestBody);
+			var response = client.Execute<Venue>(request); 
 		}
 
 
