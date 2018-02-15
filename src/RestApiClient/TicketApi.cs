@@ -1,10 +1,10 @@
 ﻿using RestSharp;
-using System;
 using System.Collections.Generic;
 using TicketSystem.RestApiClient.Model;
 using ClassLibraryTicketShop;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 
 
 namespace TicketSystem.RestApiClient
