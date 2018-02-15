@@ -46,7 +46,27 @@ namespace TicketShopWeb.Controllers
 				});
 			}
 			return View();
+
+
         }
+
+		public IActionResult Events(string name, string description)
+		{
+			if (!string.IsNullOrEmpty(name))
+			{
+				TicketApi ticketApi = new TicketApi();
+				ticketApi.EventsAdd(new TicketEvent()
+				{
+					EventName = name,
+					EventHtmlDescription = description
+				});
+			}
+			return View();
+
+
+		}
+
+
 
         public IActionResult Error()
         {
