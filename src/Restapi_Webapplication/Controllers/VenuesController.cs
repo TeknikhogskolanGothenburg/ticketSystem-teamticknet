@@ -22,7 +22,7 @@ namespace Restapi_Webapplication.Controllers
 		//	return new string[] { "value1", "value2" };
 		//}
 
-		TicketDatabase database = new TicketDatabase;
+		TicketDatabase database = new TicketDatabase();
 
 		//Get api/Venues
 		[HttpGet("{query}")]
@@ -32,9 +32,9 @@ namespace Restapi_Webapplication.Controllers
 		}
 
 		[HttpPost]
-		public void Post([FromBody]JObject data)
+		public void Post([FromBody]Venue venue)
 		{
-			Venue venue = data["Venue"].ToObject<Venue>();
+			
 			database.VenueAdd(venue.VenueName, venue.Address, venue.City, venue.Country);
 
 

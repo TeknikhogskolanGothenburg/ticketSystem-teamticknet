@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Restapi_Webapplication.Controllers
 {
-    [Produces("api/[controller]")]
+    [Produces("application/json")]
     [Route("api/User")]
     public class UserController : Controller
     {

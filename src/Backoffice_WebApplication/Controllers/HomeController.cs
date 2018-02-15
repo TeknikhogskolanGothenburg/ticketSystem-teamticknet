@@ -32,8 +32,19 @@ namespace TicketShopWeb.Controllers
             return View();
         }
 
-        public IActionResult Venues(string name, string address, string city, string country)
+        public IActionResult Venues(string Vname, string address, string city, string country)
         {
+			if (!string.IsNullOrEmpty(Vname))
+			{
+				TicketApi ticketApi = new TicketApi();
+				ticketApi.VenuesAdd(new Venue()
+				{
+					VenueName = Vname,
+					Address = address,
+					City = city,
+					Country = country
+				});
+			}
 			return View();
 
 
