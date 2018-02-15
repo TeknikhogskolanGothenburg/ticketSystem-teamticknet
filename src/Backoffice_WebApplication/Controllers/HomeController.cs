@@ -15,22 +15,14 @@ namespace TicketShopWeb.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-
-			TicketApi ticketApi = new TicketApi();
-			List<TicketEvent> getEvent = ticketApi.GetEvent("He");
-			return View(getEvent);
-			//List<Venue> sum = ticketApi.GetVenue("Te");
-			//         return View();
-		}
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    TicketApi ticketApi = new TicketApi();
+        //    List<TicketEvent> getEvent = ticketApi.GetEvent("He");
+        //    return View(getEvent);
+        //    List<Venue> sum = ticketApi.GetVenue("Te");
+        //    return View();
+        //}
 
         public IActionResult Venues(string Vname, string address, string city, string country)
         {
