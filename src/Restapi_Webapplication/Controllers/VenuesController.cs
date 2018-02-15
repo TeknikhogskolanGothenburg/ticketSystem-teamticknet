@@ -22,7 +22,7 @@ namespace Restapi_Webapplication.Controllers
 		//	return new string[] { "value1", "value2" };
 		//}
 
-		TicketDatabase database = new TicketDatabase;
+		TicketDatabase database = new TicketDatabase();
 
 		//Get api/Venues
 		[HttpGet("{query}")]
