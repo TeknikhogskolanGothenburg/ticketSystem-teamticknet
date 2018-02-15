@@ -68,11 +68,12 @@ namespace TicketSystem.RestApiClient
 
 		public void VenuesAdd(Venue newVenue)
 		{
-			var output = JsonConvert.SerializeObject(newVenue);
-			var client = new RestClient("http://localhost:61828/api/");
-			var request = new RestRequest("Venues", Method.POST);
-			request.AddParameter("application/json", output, ParameterType.RequestBody);
-			var response = client.Execute<Venue>(request); 
+			//var output = JsonConvert.SerializeObject(newVenue);
+			var client = new RestClient("http://localhost:61828");
+			var request = new RestRequest("api/Venues", Method.POST);
+			request.AddJsonBody(newVenue);
+			//request.AddParameter("venue", output, ParameterType.RequestBody);
+			client.Execute(request); 
 		}
 
 
