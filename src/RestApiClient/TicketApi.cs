@@ -78,7 +78,7 @@ namespace TicketSystem.RestApiClient
 		{
 			//var output = JsonConvert.SerializeObject(newVenue);
 			var client = new RestClient("http://localhost:61828");
-			var request = new RestRequest("api/Venues", Method.POST);
+			var request = new RestRequest("api/Event", Method.POST);
 			request.AddJsonBody(newEvent);
 			//request.AddParameter("venue", output, ParameterType.RequestBody);
 			client.Execute(request);
