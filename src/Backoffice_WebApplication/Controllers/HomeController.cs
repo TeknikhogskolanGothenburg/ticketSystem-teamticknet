@@ -48,16 +48,29 @@ namespace TicketShopWeb.Controllers
 			return View();
 
 
-            // Controllern som ska redirekta oss till POST när admin klickar på submit knappen 
-            //return RedirectToRoute("/api", "/Venues", "/POST");
-
-
-
         }
 
+		public IActionResult Events(string name, string description)
+		{
+			if (!string.IsNullOrEmpty(name))
+			{
+				TicketApi ticketApi = new TicketApi();
+				ticketApi.EventsAdd(new TicketEvent()
+				{
+					EventName = name,
+					EventHtmlDescription = description
+				});
+			}
+			return View();
 
 
-        public IActionResult Error()
+		}
+
+
+
+
+
+			public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }

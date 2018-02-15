@@ -15,7 +15,7 @@ namespace TicketSystem.RestApiClient
 
         public List<Ticket> TicketGet()
         {
-            var client = new RestClient("http://localhost:18001/");
+            var client = new RestClient("http://localhost:61828/");
             var request = new RestRequest("ticket", Method.GET);
             var response = client.Execute<List<Ticket>>(request);
             return response.Data;
@@ -23,7 +23,7 @@ namespace TicketSystem.RestApiClient
 
         public Ticket TicketTicketIdGet(int ticketId)
         {
-            var client = new RestClient("http://localhost:18001/");
+            var client = new RestClient("http://localhost:61828/");
             var request = new RestRequest("ticket/{id}", Method.GET);
             request.AddUrlSegment("id", ticketId);
             var response = client.Execute<Ticket>(request);
@@ -74,6 +74,16 @@ namespace TicketSystem.RestApiClient
 			request.AddJsonBody(newVenue);
 			//request.AddParameter("venue", output, ParameterType.RequestBody);
 			client.Execute(request); 
+		}
+
+		public void EventsAdd(TicketEvent newEvent)
+		{
+			//var output = JsonConvert.SerializeObject(newVenue);
+			var client = new RestClient("http://localhost:61828");
+			var request = new RestRequest("api/Venues", Method.POST);
+			request.AddJsonBody(newEvent);
+			//request.AddParameter("venue", output, ParameterType.RequestBody);
+			client.Execute(request);
 		}
 
 
