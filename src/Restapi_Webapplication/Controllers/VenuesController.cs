@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using TicketSystem.DatabaseRepository;
 using ClassLibraryTicketShop;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Restapi_Webapplication.Controllers
 {
