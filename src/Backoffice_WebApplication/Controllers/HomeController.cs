@@ -15,12 +15,8 @@ namespace TicketShopWeb.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult StartPage()
         {
-            //TicketApi ticketApi = new TicketApi();
-            //List<TicketEvent> getEvent = ticketApi.GetEvent("He");
-            //return View(getEvent);
-            //List<Venue> sum = ticketApi.GetVenue("Te");
             return View();
         }
 
