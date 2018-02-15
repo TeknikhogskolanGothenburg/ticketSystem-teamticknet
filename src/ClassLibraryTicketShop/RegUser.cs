@@ -7,7 +7,7 @@ namespace ClassLibraryTicketShop
     public class RegUser
     {
         
-            public int ID { get; set; }
+           // public int ID { get; set; } //Kommer troligen inte användas
             public string FName { get; set; }
             public string LName { get; set; }
             public string Password { get; set; }
