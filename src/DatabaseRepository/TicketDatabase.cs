@@ -58,10 +58,12 @@ namespace TicketSystem.DatabaseRepository
 		//	using (var connection = new SqlConnection(connectionString))
 		//	{
 		//		connection.Open();
-		//		var values = connection.Query<TicketEvent>("SELECT * FROM TicketEventDates WHERE EventName like '%" + query + "%' OR EventHtmlDescription like '%" + query + "%'").ToList();
+		//		var values = connection.Query<TicketEventDate>("SELECT * FROM TicketEventDates WHERE EventName like '%" + query + "%' OR EventHtmlDescription like '%" + query + "%'").ToList();
 		//		return values;
 		//	}
 		//}
+
+			//Kolla funktioner i SQL hur man genom att söka på datum får fram alla events och venues för det datumet med hjälp av deras id i TicketEventDate
 
 		public Venue VenueAdd(string name, string address, string city, string country)
         {
