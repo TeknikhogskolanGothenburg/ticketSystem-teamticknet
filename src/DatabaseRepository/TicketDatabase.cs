@@ -12,6 +12,21 @@ namespace TicketSystem.DatabaseRepository
     {
         static string ConnectionString = DatabaseConnection.ConnectionString;
 
+        public List<UserReg> UserRegFind(string query)
+        {
+            string connectionString = ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE Fname like '%" + query + "%' OR Lname like '%" + query + "%' OR City like '%" + query + "%'").ToList();
+                connection.Close();
+                return values;
+            }
+        }
+
+
+
+
         public TicketEvent EventAdd(string name, string description)
         {
             string connectionString = ConnectionString;
