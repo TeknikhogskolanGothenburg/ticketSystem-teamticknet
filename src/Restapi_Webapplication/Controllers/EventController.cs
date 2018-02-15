@@ -26,5 +26,12 @@ namespace Restapi_Webapplication.Controllers
 		{
 			tbd.EventAdd(newEvent.EventName, newEvent.EventHtmlDescription);
 		}
+
+		//[HttpPost]
+		//[Route("Date")]
+		//public void Post([FromBody]TicketEventDate newEventDate)
+		//{
+		//	tbd.
+		//}
 	}
 }

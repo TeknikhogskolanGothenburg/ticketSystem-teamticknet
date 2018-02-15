@@ -52,7 +52,18 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-        public Venue VenueAdd(string name, string address, string city, string country)
+		//public List<TicketEventDate> EventDateFindSpecifik(string query)
+		//{
+		//	string connectionString = ConnectionString;
+		//	using (var connection = new SqlConnection(connectionString))
+		//	{
+		//		connection.Open();
+		//		var values = connection.Query<TicketEvent>("SELECT * FROM TicketEventDates WHERE EventName like '%" + query + "%' OR EventHtmlDescription like '%" + query + "%'").ToList();
+		//		return values;
+		//	}
+		//}
+
+		public Venue VenueAdd(string name, string address, string city, string country)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
