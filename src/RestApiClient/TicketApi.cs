@@ -32,7 +32,6 @@ namespace TicketSystem.RestApiClient
             {
                 throw new KeyNotFoundException(string.Format("Ticket with ID: {0} is not found", ticketId));
             }
-
             return response.Data;
         }
 
@@ -47,7 +46,6 @@ namespace TicketSystem.RestApiClient
 			{
 				throw new KeyNotFoundException(string.Format("Ticket with ID: {0} is not found", query));
 			}
-
 			return response.Data;
 		}
 
@@ -62,7 +60,6 @@ namespace TicketSystem.RestApiClient
 			{
 				throw new KeyNotFoundException(string.Format("Ticket with ID: {0} is not found", query));
 			}
-
 			return response.Data;
 		}
 
@@ -105,10 +102,15 @@ namespace TicketSystem.RestApiClient
 			{
 				throw new KeyNotFoundException(string.Format("No events between " + date1 + " and " + date2));
 			}
-
 			return response.Data;
 		}
 
-
+        public void RegUser (UserReg newUser)
+        {
+            var client = new RestClient("http://localhost:61828");
+            var request = new RestRequest("api/UserReg", Method.POST);
+            request.AddJsonBody(newUser);
+            client.Execute(request);
+        }
 	}
 }

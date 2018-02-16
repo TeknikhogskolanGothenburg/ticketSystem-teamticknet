@@ -20,6 +20,11 @@ namespace TicketShopWeb.Controllers
             return View();
         }
 
+        public IActionResult UserRegPage()
+        {
+            return View();
+        }
+
         public IActionResult Venues(string Vname, string address, string city, string country)
         {
 			if (!string.IsNullOrEmpty(Vname))
@@ -34,8 +39,6 @@ namespace TicketShopWeb.Controllers
 				});
 			}
 			return View();
-
-
         }
 
 		public IActionResult Events(string name, string description)
@@ -50,8 +53,6 @@ namespace TicketShopWeb.Controllers
 				});
 			}
 			return View();
-
-
 		}
 
 
