@@ -12,56 +12,43 @@ using Newtonsoft.Json.Linq;
 namespace Restapi_Webapplication.Controllers
 {
     [Produces("application/json")]
-    [Route("api/User")]
-    public class UserController : Controller
+    [Route("api/UserReg")]
+    public class UserRegController : Controller
     {
 
         // GET: api/User/SearchUserReg
         TicketDatabase getUserReg = new TicketDatabase();
-        [Route("SearchUserReg")]
+      
         [HttpGet("{query}")]
-        public List<UserReg> Get(string query)
+        public List<UserReg> GetUserReg(string query)
         {
             return getUserReg.UserRegFind(query);
         }
 
-        //// GET: api/User/SearchSiteUser
-        //TicketDatabase getSiteUser = new TicketDatabase();
-        //[Route("SearchSiteUser")]
-        //[HttpGet("{query}")]
-        //public List<SiteUser> Get(string query)
-        //{
-        //    return getUserReg.UserRegFind(query);
-        //}
-
-
-        //// GET: api/User/5
+     
+        //// GET: api/UserReg/5
         //[HttpGet("{id}", Name = "Get")]
         //public string Get(int id)
         //{
         //    return "value";
         //}
-
-        //// POST: api/User
+        
+        //// POST: api/UserReg
         //[HttpPost]
         //public void Post([FromBody]string value)
         //{
         //}
-
-        //// PUT: api/User/5
+        
+        //// PUT: api/UserReg/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]string value)
         //{
         //}
-
+        
         //// DELETE: api/ApiWithActions/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)
         //{
-
         //}
     }
 }
-
-
-
