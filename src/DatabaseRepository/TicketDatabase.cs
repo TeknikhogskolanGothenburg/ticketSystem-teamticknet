@@ -18,7 +18,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE Fname like '%" + query + "%' OR Lname like '%" + query + "%' OR City like '%" + query + "%'").ToList();
+                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE Fname = '%" + query + "%' AND Lname = '%" + query + "%'").ToList();
                 connection.Close();
                 return values;
             }
