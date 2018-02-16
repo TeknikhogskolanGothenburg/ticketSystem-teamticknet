@@ -25,6 +25,18 @@ namespace TicketSystem.DatabaseRepository
         }
 
 
+        public List<SiteUser> SiteUserFind(string query)
+        {
+            string connectionString = ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE Email = '%" + query + "%' AND IsValid = 1 '%" + query + "%'").ToList();
+                connection.Close();
+                return values;
+            }
+        }
+
 
 
         public TicketEvent EventAdd(string name, string description)
