@@ -52,18 +52,18 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-		//public List<TicketEventDate> EventDateFindSpecifik(string query)
-		//{
-		//	string connectionString = ConnectionString;
-		//	using (var connection = new SqlConnection(connectionString))
-		//	{
-		//		connection.Open();
-		//		var values = connection.Query<TicketEventDate>("SELECT * FROM TicketEventDates WHERE EventName like '%" + query + "%' OR EventHtmlDescription like '%" + query + "%'").ToList();
-		//		return values;
-		//	}
-		//}
+		public List<object> EventDateFindEventsAndVenues(string date1, string date2)
+		{
+			string connectionString = ConnectionString;
+			using (var connection = new SqlConnection(connectionString))
+			{
+				connection.Open();
+				var values = connection.Query<object>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address, Venues.City From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID WHERE TicketEventDates.EventStartDateTime BETWEEN '%" + date1 + "%' AND '%" + date2 + "%'").ToList();
+				return values;
+			}
+		}
 
-			//Kolla funktioner i SQL hur man genom att söka på datum får fram alla events och venues för det datumet med hjälp av deras id i TicketEventDate
+
 
 		public Venue VenueAdd(string name, string address, string city, string country)
         {

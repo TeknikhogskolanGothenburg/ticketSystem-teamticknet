@@ -84,6 +84,16 @@ namespace TicketSystem.RestApiClient
 			client.Execute(request);
 		}
 
+		public void DateEventAdd(TicketEventDate newEventDate)
+		{
+			//var output = JsonConvert.SerializeObject(newVenue);
+			var client = new RestClient("http://localhost:61828");
+			var request = new RestRequest("api/Event", Method.POST);
+			request.AddJsonBody(newEventDate);
+			//request.AddParameter("venue", output, ParameterType.RequestBody);
+			client.Execute(request);
+		}
+
 
 	}
 }
