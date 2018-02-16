@@ -12,13 +12,15 @@ namespace TicketSystem.DatabaseRepository
     {
         static string ConnectionString = DatabaseConnection.ConnectionString;
 
+
+        //User UserRegFind takes first name and lastname WITHOUT space sepparator.
         public List<UserReg> UserRegFind(string query)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE Fname = '%" + query + "%' AND Lname = '%" + query + "%'").ToList();
+                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE (Fname + Lname) = '%" + query + "%'").ToList();
                 connection.Close();
                 return values;
             }
