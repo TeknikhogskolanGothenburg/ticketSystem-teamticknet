@@ -15,13 +15,23 @@ namespace Restapi_Webapplication.Controllers
     [Route("api/SiteUser")]
     public class SiteUserController : Controller
     {
-        TicketDatabase getSiteUser = new TicketDatabase();
+        TicketDatabase database = new TicketDatabase();
         // GET: api/SiteUser
         [HttpGet]
         public List<SiteUser> GetSiteUser(string query)
         {
-            return getSiteUser.SiteUserFind(query);
+            return database.SiteUserFind(query);
         }
+       
+        // POST: api/SiteUser
+        [HttpPost]
+        public void Post([FromBody]SiteUser user)
+        {
+               database.SiteUserAdd(user.Email, user.Password, user.IsVaild);
+
+        }
+
+
 
         //// GET: api/SiteUser/5
         //[HttpGet("{id}", Name = "Get")]
@@ -29,19 +39,19 @@ namespace Restapi_Webapplication.Controllers
         //{
         //    return "value";
         //}
-        
+
         //// POST: api/SiteUser
         //[HttpPost]
         //public void Post([FromBody]string value)
         //{
         //}
-        
+
         //// PUT: api/SiteUser/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]string value)
         //{
         //}
-        
+
         //// DELETE: api/ApiWithActions/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)

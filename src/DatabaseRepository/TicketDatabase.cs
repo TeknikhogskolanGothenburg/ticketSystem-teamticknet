@@ -38,7 +38,32 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-
+        public SiteUser SiteUserAdd(string email, string password, int isValid)
+        {
+            string connectionString = ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                connection.Query("insert into SiteUser([Email],[Password],[IsValid]) values(@Email,@Password, @IsValid, @Country)", new { Email = email , Password = password, IsValid = isValid});
+                var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('SiteUser') AS Current_Identity").First();
+                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE ID=@Id", new { Id = addedVenueQuery }).First();
+                connection.Close();
+                return values;
+            }
+        }
+        public UserReg UserRegAdd(string fname, string lname, string password, string city)
+        {
+            string connectionString = ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                connection.Query("insert into SiteUser([Fname],[Lname],[Password],[City]) values(@Email,@Password, @IsValid, @Country)", new { Fname = fname, Lname = lname, Password = password, City = city });
+                var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('UserReg') AS Current_Identity").First();
+                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE ID=@Id", new { Id = addedVenueQuery }).First();
+                connection.Close();
+                return values;
+            }
+        }
 
 
         public TicketEvent EventAdd(string name, string description)
@@ -76,6 +101,7 @@ namespace TicketSystem.DatabaseRepository
 				return values;
 			}
 		}
+
 
 
 

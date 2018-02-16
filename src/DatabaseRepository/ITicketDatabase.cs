@@ -44,5 +44,23 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="query">A text which is user i looking for in the SiteUser</param>
         /// <returns>A list of SiteUsers matching the query</returns>
         List<SiteUser> SiteUserFind(string query);
+
+        /// <summary>
+        /// Add a new Event to the database
+        /// </summary>
+        /// <param name="name">Name of the event</param>
+        /// <param name="description">A desription of the event, html markup of the event is allowed</param>
+        /// <returns>An object representing the newly created UserReg</returns>
+        UserReg UserRegAdd(string fName, string lName, string password, string city);
+
+        /// <summary>
+        /// Add a new Event to the database
+        /// </summary>
+        /// <param email ="email">Name of site user</param>
+        /// <param password="description">Password to set</param>
+        /// <param isValid="description">sets with integer if user valid or not (0 or 1) </param>
+        /// <returns>  An object representing the newly created SiteUser</returns>
+        SiteUser SiteUserAdd(string email, string password, int isValid);
+
     }
 }
