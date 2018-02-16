@@ -35,8 +35,14 @@ namespace TicketSystem.DatabaseRepository
         /// <summary>
         /// Find all Registered users matching the query
         /// </summary>
-        /// <param name="query">A text which is user i looking for in the venues</param>
+        /// <param name="query">A text which is user i looking for in the UserReg</param>
         /// <returns>A list of RegUsers matching the query</returns>
         List<UserReg> UserRegFind(string query);
+        /// <summary>
+        /// Find all Site users matching the query
+        /// </summary>
+        /// <param name="query">A text which is user i looking for in the SiteUser</param>
+        /// <returns>A list of SiteUsers matching the query</returns>
+        List<SiteUser> SiteUserFind(string query);
     }
 }

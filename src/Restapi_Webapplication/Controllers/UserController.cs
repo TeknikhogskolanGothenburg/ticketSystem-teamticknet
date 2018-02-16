@@ -16,33 +16,44 @@ namespace Restapi_Webapplication.Controllers
     public class UserController : Controller
     {
 
-        // GET: api/User/Get
-        TicketDatabase getUser = new TicketDatabase();
-        [Route("Get")]
+        // GET: api/User/SearchUserReg
+        TicketDatabase getUserReg = new TicketDatabase();
+        [Route("SearchUserReg")]
         [HttpGet("{query}")]
         public List<UserReg> Get(string query)
         {
-            return getUser.UserRegFind(query);
+            return getUserReg.UserRegFind(query);
         }
+
+        //// GET: api/User/SearchSiteUser
+        //TicketDatabase getSiteUser = new TicketDatabase();
+        //[Route("SearchSiteUser")]
+        //[HttpGet("{query}")]
+        //public List<SiteUser> Get(string query)
+        //{
+        //    return getUserReg.UserRegFind(query);
+        //}
+
+
         //// GET: api/User/5
         //[HttpGet("{id}", Name = "Get")]
         //public string Get(int id)
         //{
         //    return "value";
         //}
-        
+
         //// POST: api/User
         //[HttpPost]
         //public void Post([FromBody]string value)
         //{
         //}
-        
+
         //// PUT: api/User/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]string value)
         //{
         //}
-        
+
         //// DELETE: api/ApiWithActions/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)
