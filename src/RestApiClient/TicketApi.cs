@@ -91,12 +91,12 @@ namespace TicketSystem.RestApiClient
 			client.Execute(request);
 		}
 
-		public List<object> GetEventsAndVenuesByDates(string date1, string date2)
+		public List<AllEventsByDate> GetEventsAndVenuesByDates(string date1, string date2)
 		{
 			var client = new RestClient("http://localhost:61828");
 			var request = new RestRequest("api/AllInfoByDate", Method.GET);
 			//request.AddUrlSegment("date1", date1, "date2", date2);
-			var response = client.Execute<List<object>>(request);
+			var response = client.Execute<List<AllEventsByDate>>(request);
 
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
 			{
