@@ -20,11 +20,6 @@ namespace TicketShopWeb.Controllers
             return View();
         }
 
-        public IActionResult UserRegPage()
-        {
-            return View();
-        }
-
         public IActionResult Venues(string Vname, string address, string city, string country)
         {
 			if (!string.IsNullOrEmpty(Vname))
@@ -54,6 +49,23 @@ namespace TicketShopWeb.Controllers
 			}
 			return View();
 		}
+
+        public IActionResult UserReg(string Fname, string Lname, string psw, string email)
+        {
+            if (!string.IsNullOrEmpty(Fname))
+            {
+                TicketApi ticketApi = new TicketApi();
+                ticketApi.UserReg(new UserReg()
+                {
+                    FName = Fname,
+                    LName = Lname,
+                    Password = psw,
+                    Email = email
+                });
+            }
+            return View();
+
+        }
 
 		
 
