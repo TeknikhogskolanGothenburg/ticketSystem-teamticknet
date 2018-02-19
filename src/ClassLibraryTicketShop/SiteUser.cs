@@ -11,7 +11,7 @@ namespace ClassLibraryTicketShop
             public string Email { get; set; }
             public string Password { get; set; }
             
-            public int IsVaild { get; set; }
+            public bool IsVaild { get; set; }
           
         
     }

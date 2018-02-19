@@ -60,7 +60,7 @@ namespace TicketSystem.DatabaseRepository
         /// <param password="description">Password to set</param>
         /// <param isValid="description">sets with integer if user valid or not (0 or 1) </param>
         /// <returns>  An object representing the newly created SiteUser</returns>
-        SiteUser SiteUserAdd(string email, string password, int isValid);
+        SiteUser SiteUserAdd(string email, string password, bool isValid);
 
     }
 }

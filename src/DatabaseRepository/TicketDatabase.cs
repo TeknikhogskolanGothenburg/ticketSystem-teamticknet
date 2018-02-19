@@ -39,7 +39,7 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-        public SiteUser SiteUserAdd(string email, string password, int isValid)
+        public SiteUser SiteUserAdd(string email, string password, bool isValid)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
