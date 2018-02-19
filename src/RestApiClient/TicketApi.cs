@@ -105,10 +105,10 @@ namespace TicketSystem.RestApiClient
 			return response.Data;
 		}
 
-        public void RegUser (UserReg newUser)
+        public void UserReg (UserReg newUser)
         {
             var client = new RestClient("http://localhost:61828");
-            var request = new RestRequest("api/UserReg", Method.POST);
+            var request = new RestRequest("api/RegUser", Method.POST);
             request.AddJsonBody(newUser);
             client.Execute(request);
         }
