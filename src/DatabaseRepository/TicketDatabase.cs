@@ -5,6 +5,7 @@ using System.Linq;
 using Dapper;
 using TicketSystem.DatabaseRepository;
 using ClassLibraryTicketShop;
+using System;
 
 namespace TicketSystem.DatabaseRepository
 {
@@ -26,14 +27,14 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        //SiteUserFind checks if email is the same as in the SiteUser Table and IsValid =1 since it is the reprecentation of bool.
+        
         public List<SiteUser> SiteUserFind(string query)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE Email = '%" + query + "%' AND IsValid = 1 '%").ToList();
+                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE Email = '%" + query + "%' AND IsValid = True '%").ToList();
                 connection.Close();
                 return values;
             }
@@ -91,13 +92,13 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-		public List<object> EventDateFindEventsAndVenues(string date1, string date2)
+		public List<AllEventsByDate> EventDateFindEventsAndVenues(string date1, string date2)
 		{
 			string connectionString = ConnectionString;
 			using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				var values = connection.Query<object>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address, Venues.City From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID WHERE TicketEventDates.EventStartDateTime BETWEEN '%" + date1 + "%' AND '%" + date2 + "%'").ToList();
+				var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address, Venues.City From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID WHERE TicketEventDates.EventStartDateTime BETWEEN '%" + date1 + "%' AND '%" + date2 + "%'").ToList();
 				return values;
 			}
 		}

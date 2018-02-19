@@ -16,7 +16,7 @@ namespace Restapi_Webapplication.Controllers
     public class UserRegController : Controller
     {
 
-        // GET: api/User/SearchUserReg
+        // GET: api/SearchUserReg
         TicketDatabase database = new TicketDatabase();
         
         [HttpGet("{query}")]
