@@ -52,13 +52,13 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-        public UserReg UserRegAdd(string fname, string lname, string password, string city)
+        public UserReg UserRegAdd(string fname, string lname, string password, string email)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("insert into SiteUser([Fname],[Lname],[Password],[City]) values(@Email,@Password, @IsValid, @Country)", new { Fname = fname, Lname = lname, Password = password, City = city });
+                connection.Query("insert into SiteUser([Fname],[Lname],[Password],[Email]) values(@Fname,@Lname, @Password, @Email)", new { Fname = fname, Lname = lname, Password = password, Email= email });
                 var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('UserReg') AS Current_Identity").First();
                 var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE ID=@Id", new { Id = addedVenueQuery }).First();
                 connection.Close();
@@ -98,7 +98,7 @@ namespace TicketSystem.DatabaseRepository
 			using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address, Venues.City From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID WHERE TicketEventDates.EventStartDateTime BETWEEN '%" + date1 + "%' AND '%" + date2 + "%'").ToList();
+				var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address, Venues.Email From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID WHERE TicketEventDates.EventStartDateTime BETWEEN '%" + date1 + "%' AND '%" + date2 + "%'").ToList();
 				return values;
 			}
 		}
@@ -112,7 +112,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("insert into Venues([VenueName],[Address],[City],[Country]) values(@Name,@Address, @City, @Country)", new { Name = name, Address= address, City = city, Country = country });
+                connection.Query("insert into Venues([VenueName],[Address],[Email],[Country]) values(@Name,@Address, @Email, @Country)", new { Name = name, Address= address, City = city, Country = country });
                 var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Venues') AS Current_Identity").First();
                 var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueID=@Id", new { Id = addedVenueQuery }).First();
                 connection.Close();
@@ -126,7 +126,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR City like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
+                var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR Email like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
                 connection.Close();
                 return values;
             }
@@ -137,7 +137,7 @@ namespace TicketSystem.DatabaseRepository
 			using (var connection = new SqlConnection(ConnectionString))
 			{
 				connection.Open();
-				var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR City like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
+				var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR Email like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
                 return values;
 			}
 		}

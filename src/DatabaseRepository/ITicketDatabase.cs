@@ -19,7 +19,7 @@ namespace TicketSystem.DatabaseRepository
         /// </summary>
         /// <param name="name">Name of the venue</param>
         /// <param name="address">Physical address of the venue</param>
-        /// <param name="city">City part of the adress</param>
+        /// <param name="city">Email part of the adress</param>
         /// <param name="country">Country part of the adress</param>
         /// <returns>An object representing the newly created Venue</returns>
         Venue VenueAdd(string name, string address, string city, string country);
@@ -51,7 +51,7 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="name">Name of the event</param>
         /// <param name="description">A desription of the event, html markup of the event is allowed</param>
         /// <returns>An object representing the newly created UserReg</returns>
-        UserReg UserRegAdd(string fName, string lName, string password, string city);
+        UserReg UserRegAdd(string fName, string lName, string password, string email);
 
         /// <summary>
         /// Add a new Event to the database

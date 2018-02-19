@@ -25,11 +25,11 @@ namespace Restapi_Webapplication.Controllers
             return database.UserRegFind(query);
         }
 
-        // POST: api/SiteUser
+        // POST: api/UserReg
         [HttpPost]
         public void Post([FromBody]UserReg user)
         {
-            database.UserRegAdd(user.FName, user.LName, user.Password,user.City);
+            database.UserRegAdd(user.FName, user.LName, user.Password,user.Email);
         }
 
         //// GET: api/UserReg/5

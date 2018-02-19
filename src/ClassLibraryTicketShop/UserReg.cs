@@ -10,6 +10,6 @@ namespace ClassLibraryTicketShop
         public string FName { get; set; }
         public string LName { get; set; }
         public string Password { get; set; }
-        public string City { get; set; }
+        public string Email { get; set; }
     }
 }
