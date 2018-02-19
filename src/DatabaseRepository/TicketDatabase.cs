@@ -14,14 +14,14 @@ namespace TicketSystem.DatabaseRepository
         static string ConnectionString = DatabaseConnection.ConnectionString;
 
 
-        //User UserRegFind takes first name and lastname WITHOUT space sepparator.
+        //User UserRegFind takes first name and lastname WITHOUT space sepparator or Email.
         public List<UserReg> UserRegFind(string query)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE (Fname + Lname) = '%" + query + "%'").ToList();
+                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE (Fname + Lname) = '%" + query + "%' OR Email ='%" + query+ "'%").ToList();
                 connection.Close();
                 return values;
             }
@@ -45,7 +45,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("insert into SiteUser([Email],[Password],[IsValid]) values(@Email,@Password, @IsValid, @Country)", new { Email = email , Password = password, IsValid = isValid});
+                connection.Query("insert into SiteUser([Email],[Password],[IsValid]) values(@Email,@Password, @IsValid)", new { Email = email , Password = password, IsValid = isValid});
                 var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('SiteUser') AS Current_Identity").First();
                 var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE ID=@Id", new { Id = addedVenueQuery }).First();
                 connection.Close();
@@ -103,9 +103,7 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-
-
-
+                
 		public Venue VenueAdd(string name, string address, string city, string country)
         {
             string connectionString = ConnectionString;
