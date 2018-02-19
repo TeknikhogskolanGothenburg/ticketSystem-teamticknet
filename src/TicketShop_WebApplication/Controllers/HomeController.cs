@@ -5,14 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TicketShop_WebApplication.Models;
+using TicketSystem.RestApiClient;
+using ClassLibraryTicketShop;
+
 
 namespace TicketShop_WebApplication.Controllers
 {
     public class HomeController : Controller
     {
+		TicketApi ticketApi = new TicketApi();
 
-		public IActionResult SearchAllByDate()
+		public IActionResult SearchAllByDate(string date1, string date2)
 		{
+			ticketApi.GetEventsAndVenuesByDates(date1, date2);
 			return View();
 		}
 
