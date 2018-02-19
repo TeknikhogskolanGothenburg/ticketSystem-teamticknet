@@ -27,14 +27,14 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-        //SiteUserFind checks if email is the same as in the SiteUser Table and IsValid =1 since it is the reprecentation of bool.
+        
         public List<SiteUser> SiteUserFind(string query)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE Email = '%" + query + "%' AND IsValid = 1 '%").ToList();
+                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE Email = '%" + query + "%' AND IsValid = True '%").ToList();
                 connection.Close();
                 return values;
             }

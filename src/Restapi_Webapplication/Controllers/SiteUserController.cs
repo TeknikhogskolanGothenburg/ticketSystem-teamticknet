@@ -27,7 +27,7 @@ namespace Restapi_Webapplication.Controllers
         [HttpPost]
         public void Post([FromBody]SiteUser user)
         {
-               database.SiteUserAdd(user.Email, user.Password, user.IsVaild);
+               database.SiteUserAdd(user.Email, user.Password,user.IsVaild);
 
         }
 
