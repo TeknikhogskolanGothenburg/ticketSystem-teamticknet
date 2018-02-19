@@ -17,7 +17,7 @@ namespace Restapi_Webapplication.Controllers
     {
 		TicketDatabase tbd = new TicketDatabase();
 
-		[HttpGet("{date}")]
+		[HttpGet]
 		public List<AllEventsByDate> Get(string date1, string date2)
 		{
 			return tbd.EventDateFindEventsAndVenues(date1, date2);
