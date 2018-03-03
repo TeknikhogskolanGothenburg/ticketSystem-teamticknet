@@ -15,10 +15,9 @@ namespace TicketShop_WebApplication.Controllers
     {
 		TicketApi ticketApi = new TicketApi();
 
-		public IActionResult SearchAllByDate(string date1, string date2)
+		public IActionResult SearchAllByDate()
 		{
-			ticketApi.GetEventsAndVenuesByDates(date1, date2).Add(new AllEventsByDate());
-			return View("SearchAllByDate");
+			return View();
 		}
 
         public IActionResult Index()
