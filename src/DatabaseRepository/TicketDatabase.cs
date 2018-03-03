@@ -103,19 +103,13 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-                
-		public Venue VenueAdd(string name, string address, string city, string country)
+
+        public void VenuesAdd(Venue newVenue)
         {
-            string connectionString = ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                connection.Query("insert into Venues([VenueName],[Address],[Email],[Country]) values(@Name,@Address, @Email, @Country)", new { Name = name, Address= address, City = city, Country = country });
-                var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Venues') AS Current_Identity").First();
-                var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueID=@Id", new { Id = addedVenueQuery }).First();
-                connection.Close();
-                return values;
-            }
+            var client = new RestClient("http://localhost:61828");
+            var request = new RestRequest("api/Venues", Method.POST);
+            request.AddJsonBody(newVenue);
+            client.Execute(request);
         }
 
         public List<Venue> VenuesFind(string query)
