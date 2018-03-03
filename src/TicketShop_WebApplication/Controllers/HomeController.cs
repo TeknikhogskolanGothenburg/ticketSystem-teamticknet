@@ -15,10 +15,13 @@ namespace TicketShop_WebApplication.Controllers
     {
 		TicketApi ticketApi = new TicketApi();
 
-		public IActionResult SearchAllByDate()
+		public IActionResult SearchAllByDate(string date1, string date2)
 		{
-			return View();
+			ticketApi.GetEventsAndVenues();
+			return View("/Home", "/AllEvents");
 		}
+
+
 
         public IActionResult Index()
         {

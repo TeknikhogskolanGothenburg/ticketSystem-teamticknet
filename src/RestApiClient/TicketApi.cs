@@ -44,7 +44,7 @@ namespace TicketSystem.RestApiClient
 
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
 			{
-				throw new KeyNotFoundException(string.Format("Ticket with ID: {0} is not found", query));
+				throw new KeyNotFoundException(string.Format("No venue found", query));
 			}
 			return response.Data;
 		}
@@ -58,7 +58,7 @@ namespace TicketSystem.RestApiClient
 
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
 			{
-				throw new KeyNotFoundException(string.Format("Ticket with ID: {0} is not found", query));
+				throw new KeyNotFoundException(string.Format("No events found", query));
 			}
 			return response.Data;
 		}
@@ -91,7 +91,7 @@ namespace TicketSystem.RestApiClient
 			client.Execute(request);
 		}
 
-		public List<AllEventsByDate> GetEventsAndVenuesByDates(string date1, string date2)
+		public List<AllEventsByDate> GetEventsAndVenues()
 		{
 			var client = new RestClient("http://localhost:61828");
 			var request = new RestRequest("api/AllInfoByDate", Method.GET);
@@ -100,7 +100,7 @@ namespace TicketSystem.RestApiClient
 
 			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
 			{
-				throw new KeyNotFoundException(string.Format("No events between " + date1 + " and " + date2));
+				throw new KeyNotFoundException(string.Format("No events found"));
 			}
 			return response.Data;
 		}
