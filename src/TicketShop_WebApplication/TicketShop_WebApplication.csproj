@@ -18,4 +18,10 @@
     <ProjectReference Include="..\RestApiClient\RestApiClient.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="hej.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

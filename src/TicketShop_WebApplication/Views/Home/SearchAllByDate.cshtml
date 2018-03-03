@@ -1,4 +1,24 @@
-﻿<form method="post">
+﻿@*using ClassLibraryTickeShop List<AllEventsByDate>
+
+
+<div class="row">
+	@foreach (var product in List<AllEventsByDate>)
+	{
+
+		<div class="card" style="width: 18rem;">
+			<img class="card-img-top" src="@product.ImageUrl" alt="Card image alt">
+			<div class="card-body">
+				<h5 class="card-title">@product.ProductName</h5>
+				<p class="card-text">@product.Description</p>
+				<label>Price: @product.Price</label>
+				@Html.ActionLink("Add to cart", "Beer", product, new { @class = "btn btn-success" })
+			</div>
+		</div>
+	}
+</div>*@
+
+
+<form method="post">
 	Start Date: <input type="text" name="date1" value=""><br>
 	End Date: <input type="text" name="date2" value=""><br>
 	<input type="submit" />
