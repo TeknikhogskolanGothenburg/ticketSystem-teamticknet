@@ -16,7 +16,7 @@ namespace Restapi_Webapplication.Controllers
     public class UserRegController : Controller
     {
 
-        // GET: api/User/SearchUserReg
+        // GET: api/SearchUserReg
         TicketDatabase database = new TicketDatabase();
         
         [HttpGet("{query}")]
@@ -25,11 +25,11 @@ namespace Restapi_Webapplication.Controllers
             return database.UserRegFind(query);
         }
 
-        // POST: api/SiteUser
+        // POST: api/UserReg
         [HttpPost]
         public void Post([FromBody]UserReg user)
         {
-            database.UserRegAdd(user.FName, user.LName, user.Password,user.City);
+            database.UserRegAdd(user.FName, user.LName, user.Password,user.Email);
         }
 
         //// GET: api/UserReg/5
