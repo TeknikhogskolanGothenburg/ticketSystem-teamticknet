@@ -1,52 +1,4 @@
-﻿@*<html>
-	<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-	body {
-	  margin: 0;
-	  font-family: Arial, Helvetica, sans-serif;
-	}
-
-	.topnav {
-	  overflow: hidden;
-	  background-color: black;
-	}
-
-	.topnav a {
-	  float: left;
-	  color: #f2f2f2;
-	  text-align: center;
-	  padding: 14px 16px;
-	  text-decoration: none;
-	  font-size: 17px;
-	}
-
-	.topnav a:hover {
-	  background-color: #ddd;
-	  color: black;
-	}
-
-	.topnav a.active {
-	  background-color: #4CAF50;
-	  color: white;
-	}
-	</style>
-	</head>
-	<body>
-
-	<div class="topnav">
-	  <a asp-controller="Home" asp-action="SearchAllByDate">Show events and venues</a>
-
-	</div>
-
-	<div style="padding-left:16px">
-	  <h2>Book your event!</h2>
-	</div>
-
-	</body>
-	@RenderBody()
-	</html>*@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -74,11 +26,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">TicketShopBareBone</a>
+				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Book your event here!</a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="Index">Events</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
 					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 				</ul>
