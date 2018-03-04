@@ -62,5 +62,8 @@ namespace TicketSystem.DatabaseRepository
         /// <returns>  An object representing the newly created SiteUser</returns>
         SiteUser SiteUserAdd(string email, string password, bool isValid);
 
-    }
+		List<AllEventsByDate> EventDateFindEventsAndVenues();
+
+
+	}
 }
