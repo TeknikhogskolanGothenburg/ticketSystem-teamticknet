@@ -14,9 +14,10 @@ namespace TicketShop_WebApplication.Controllers
     public class HomeController : Controller
     {
 		TicketApi ticketApi = new TicketApi();
+		public static List<AllEventsByDate> cart = new List<AllEventsByDate>();
 
 
-        public IActionResult Index()
+		public IActionResult Index()
         {
             return RedirectToAction("AllEvents", "Home");
         }
@@ -26,7 +27,18 @@ namespace TicketShop_WebApplication.Controllers
 			return View(ticketApi.GetEventsAndVenues());
 		}
 
-        public IActionResult About()
+		public IActionResult Buy(AllEventsByDate events)
+		{
+			if (events.EventName != null || events.EventName != "")
+			{
+				cart.Add(events);
+			}
+
+			return View();
+
+		}
+
+		public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 
