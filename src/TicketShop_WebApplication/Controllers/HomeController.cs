@@ -38,9 +38,9 @@ namespace TicketShop_WebApplication.Controllers
 
 		}
 
-		//public IActionResult Delete(AllEventsByDate events)
+		//public IActionResult Delete(int id)
 		//{
-		//	cart.Remove(events);
+		//	cart.Remove();
 		//	return RedirectToAction("Home");
 		//}
 
