@@ -111,5 +111,15 @@ namespace TicketSystem.RestApiClient
             request.AddJsonBody(newUser);
             client.Execute(request);
         }
+
+		public void DeleteEventInfo(int id)
+		{
+			//var output = JsonConvert.SerializeObject(newVenue);
+			var client = new RestClient("http://localhost:61828");
+			var request = new RestRequest("api/AllInfo/{id}", Method.DELETE);
+			//request.AddJsonBody(newEventDate);
+			//request.AddParameter("venue", output, ParameterType.RequestBody);
+			client.Execute(request);
+		}
 	}
 }

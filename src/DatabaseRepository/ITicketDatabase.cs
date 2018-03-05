@@ -63,7 +63,7 @@ namespace TicketSystem.DatabaseRepository
         SiteUser SiteUserAdd(string email, string password, bool isValid);
 
 		List<AllEventsByDate> EventDateFindEventsAndVenues();
-
+	
 
 
 	}

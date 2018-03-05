@@ -11,10 +11,10 @@ using Newtonsoft.Json.Linq;
 
 namespace Restapi_Webapplication.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/AllInfo")]
-    public class AllInfoByDateController : ControllerBase
-    {
+	[Produces("application/json")]
+	[Route("api/AllInfo")]
+	public class AllInfoByDateController : ControllerBase
+	{
 		TicketDatabase tbd = new TicketDatabase();
 
 		// GET api/AllInfo
@@ -27,6 +27,13 @@ namespace Restapi_Webapplication.Controllers
 				EventStartDateTime = DateTime.Now, //Visar nya event (ej de som passerat datumet)
 			});
 			return tbd.EventDateFindEventsAndVenues().Where(x => x.EventStartDateTime >= allEvents[0].EventStartDateTime).ToList();
+		}
+
+		
+		[HttpDelete("{id}")]
+		public void Delete(int id)
+		{
+			TicketSystem.DatabaseRepository.TicketDatabase.DeleteEventsAndVenues(id);
 		}
 
 		

@@ -103,13 +103,13 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-		public static void DeleteEventsAndVenues(AllEventsByDate events)
+		public static void DeleteEventsAndVenues(int id)
 		{
 			string connectionString = ConnectionString;
 			using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
-				 connection.Query("DELETE FROM TicketEventDates WHERE TicketEventDateID = '@ID'", new {@ID = events.TicketEventDateID});
+				 connection.Query("DELETE FROM TicketEventDates WHERE TicketEventDateID = '@ID'", new {@ID = id});
 
 			}
 		}

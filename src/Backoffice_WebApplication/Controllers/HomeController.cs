@@ -73,8 +73,12 @@ namespace TicketShopWeb.Controllers
 			return View(ticketApi.GetEventsAndVenues());
 		}
 
-		public IActionResult Delete()
+		public IActionResult Delete(int EventId)
 		{
+
+			int id = 0;
+			ticketApi.DeleteEventInfo(id);
+
 			return View();
 		}
 
