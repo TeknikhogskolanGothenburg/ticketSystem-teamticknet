@@ -29,7 +29,7 @@ namespace Restapi_Webapplication.Controllers
         [HttpPost]
         public void Post([FromBody]UserReg user)
         {
-            database.UserRegAdd(user.FName, user.LName, user.Password,user.Email);
+            database.UserRegAdd(user.Firstname, user.Lastname, user.Password,user.Email);
         }
 
         //// GET: api/UserReg/5

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ClassLibraryTicketShop
@@ -7,9 +8,15 @@ namespace ClassLibraryTicketShop
     public class UserReg
     {      
         public int ID { get; set; }
-        public string FName { get; set; }
-        public string LName { get; set; }
+
+		[Display(Name = "Firstname")]
+        public string Firstname { get; set; }
+
+		[Display(Name = "Lastname")]
+        public string Lastname { get; set; }
         public string Password { get; set; }
+
+		[Display(Name = "Email")]
         public string Email { get; set; }
     }
 }

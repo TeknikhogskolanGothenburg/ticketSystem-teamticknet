@@ -21,7 +21,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE (Fname + Lname) = '%" + query + "%' OR Email ='%" + query+ "'%").ToList();
+                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE (Firstname + Lastname) = '%" + query + "%' OR Email ='%" + query+ "'%").ToList();
                 connection.Close();
                 return values;
             }
@@ -58,7 +58,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("insert into SiteUser([Fname],[Lname],[Password],[Email]) values(@Fname,@Lname, @Password, @Email)", new { Fname = fname, Lname = lname, Password = password, Email= email });
+                connection.Query("insert into SiteUser([Firstname],[Lastname],[Password],[Email]) values(@Firstname,@Lastname, @Password, @Email)", new { Firstname = fname, Lastname = lname, Password = password, Email= email });
                 var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('UserReg') AS Current_Identity").First();
                 var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE ID=@Id", new { Id = addedVenueQuery }).First();
                 connection.Close();
