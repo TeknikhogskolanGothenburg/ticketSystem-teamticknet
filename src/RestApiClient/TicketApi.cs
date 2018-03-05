@@ -91,18 +91,18 @@ namespace TicketSystem.RestApiClient
 			client.Execute(request);
 		}
 
-		public List<AllEventsByDate> GetEventsAndVenues()
-		{
-			var client = new RestClient("http://localhost:61828");
-			var request = new RestRequest("api/AllInfo", Method.GET);
-			var response = client.Execute<List<AllEventsByDate>>(request);
+        public List<AllEventsByDate> GetEventsAndVenues()
+        {
+            var client = new RestClient("http://localhost:61828");
+            var request = new RestRequest("api/AllInfo", Method.GET);
+            var response = client.Execute<List<AllEventsByDate>>(request);
 
-			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-			{
-				throw new KeyNotFoundException(string.Format("No events found"));
-			}
-			return response.Data;
-		}
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new KeyNotFoundException(string.Format("No events found"));
+            }
+            return response.Data;
+        }
 
         public void UserReg (UserReg newUser)
         {

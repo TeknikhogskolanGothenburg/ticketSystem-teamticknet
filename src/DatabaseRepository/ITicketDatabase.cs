@@ -1,6 +1,11 @@
-﻿using TicketSystem.DatabaseRepository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using Dapper;
+using TicketSystem.DatabaseRepository;
 using ClassLibraryTicketShop;
+using System;
 
 namespace TicketSystem.DatabaseRepository
 {
@@ -62,9 +67,6 @@ namespace TicketSystem.DatabaseRepository
         /// <returns>  An object representing the newly created SiteUser</returns>
         SiteUser SiteUserAdd(string email, string password, bool isValid);
 
-		List<AllEventsByDate> EventDateFindEventsAndVenues();
-	
-
-
-	}
+        List<AllEventsByDate> EventDateFindEventsAndVenues();
+    }
 }

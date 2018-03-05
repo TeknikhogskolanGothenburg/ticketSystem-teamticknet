@@ -26,11 +26,11 @@ namespace Restapi_Webapplication.Controllers
         }
 
         // POST: api/UserReg
-        [HttpPost]
-        public void Post([FromBody]UserReg user)
-        {
-            database.UserRegAdd(user.Firstname, user.Lastname, user.Password,user.Email);
-        }
+        //[HttpPost]
+        //public void Post([FromBody]UserReg user)
+        //{
+        //    database.UserRegAdd(user.FName, user.LName, user.Password,user.Email);
+        //}
 
         //// GET: api/UserReg/5
         //[HttpGet("{id}", Name = "Get")]

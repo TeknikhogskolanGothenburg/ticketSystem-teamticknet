@@ -46,16 +46,17 @@ namespace TicketShop_WebApplication.Controllers
 
 		public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            if (events.EventName != null || events.EventName != "")
+            {
+                cart.Add(events);
+            }
 
-            return View();
+            return View(new UserAndTicket { events = cart });
         }
 
-        public IActionResult Contact()
+        public IActionResult AllEvents()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(ticketApi.GetEventsAndVenues());
         }
 
         public IActionResult Error()

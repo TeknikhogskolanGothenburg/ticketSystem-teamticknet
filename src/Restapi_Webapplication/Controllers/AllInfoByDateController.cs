@@ -11,10 +11,10 @@ using Newtonsoft.Json.Linq;
 
 namespace Restapi_Webapplication.Controllers
 {
-	[Produces("application/json")]
-	[Route("api/AllInfo")]
-	public class AllInfoByDateController : ControllerBase
-	{
+    [Produces("application/json")]
+    [Route("api/AllInfo")]
+    public class AllInfoByDateController : ControllerBase
+    {
 		TicketDatabase tbd = new TicketDatabase();
 
 		// GET api/AllInfo
