@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,31 +13,18 @@ namespace TicketShop_WebApplication.Controllers
 {
     public class HomeController : Controller
     {
-		TicketApi ticketApi = new TicketApi();
+        TicketApi ticketApi = new TicketApi();
+        //public static List<AllEventsByDate> cart = new List<AllEventsByDate>();
 
-		public IActionResult SearchAllByDate(string date1, string date2)
-		{
-			ticketApi.GetEventsAndVenuesByDates(date1, date2).Add(new AllEventsByDate());
-			return View("SearchAllByDate");
-		}
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult AllEvents()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(ticketApi.GetEventsAndVenues());
         }
 
         public IActionResult Error()

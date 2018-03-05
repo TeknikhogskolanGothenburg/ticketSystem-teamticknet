@@ -92,24 +92,15 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-		public List<AllEventsByDate> EventDateFindEventsAndVenues(string date1, string date2)
-		{
-			string connectionString = ConnectionString;
-			using (var connection = new SqlConnection(connectionString))
-			{
-				connection.Open();
-				var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address, Venues.Email From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID WHERE TicketEventDates.EventStartDateTime BETWEEN '%" + date1 + "%' AND '%" + date2 + "%'").ToList();
-				return values;
-			}
-		}
-
-
-        public void VenuesAdd(Venue newVenue)
+        public List<AllEventsByDate> EventDateFindEventsAndVenues()
         {
-            var client = new RestClient("http://localhost:61828");
-            var request = new RestRequest("api/Venues", Method.POST);
-            request.AddJsonBody(newVenue);
-            client.Execute(request);
+            string connectionString = ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID ").ToList();
+                return values;
+            }
         }
 
         public List<Venue> VenuesFind(string query)
@@ -123,7 +114,21 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
-        
+
+        public Venue VenueAdd(string name, string address, string city, string country)
+        {
+            string connectionString = ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                connection.Query("insert into Venues([VenueName],[Address],[City],[Country]) values(@Name,@Address, @City, @Country)", new { Name = name, Address = address, City = city, Country = country });
+                var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Venues') AS Current_Identity").First();
+                var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueID=@Id", new { Id = addedVenueQuery }).First();
+                connection.Close();
+                return values;
+            }
+        }
+
         public static List<Venue> VenuesSpecific(string query)
 		{
 			using (var connection = new SqlConnection(ConnectionString))

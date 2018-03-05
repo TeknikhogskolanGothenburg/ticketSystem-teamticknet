@@ -12,15 +12,24 @@ using Newtonsoft.Json.Linq;
 namespace Restapi_Webapplication.Controllers
 {
     [Produces("application/json")]
-    [Route("api/AllInfoByDate")]
+    [Route("api/AllInfo")]
     public class AllInfoByDateController : ControllerBase
     {
 		TicketDatabase tbd = new TicketDatabase();
 
+		// GET api/AllInfo
 		[HttpGet]
-		public List<AllEventsByDate> Get(string date1, string date2)
+		public List<AllEventsByDate> Get()
 		{
-			return tbd.EventDateFindEventsAndVenues(date1, date2);
+			List<AllEventsByDate> allEvents = new List<AllEventsByDate>();
+			allEvents.Add(new AllEventsByDate()
+			{
+				EventStartDateTime = DateTime.Now, //Visar nya event (ej de som passerat datumet)
+			});
+			return tbd.EventDateFindEventsAndVenues().Where(x => x.EventStartDateTime >= allEvents[0].EventStartDateTime).ToList();
 		}
+
+		
+		
 	}
 }

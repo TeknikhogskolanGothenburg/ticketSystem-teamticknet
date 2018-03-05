@@ -1,0 +1,35 @@
+﻿@model List<ClassLibraryTicketShop.AllEventsByDate>
+
+
+
+@{
+	ViewBag.Title = "ViewAll";
+}
+
+
+
+
+<h1>Alla event</h1>
+
+@foreach (var item in @Model)
+{
+
+	<form action="~/Home/Index" method="get">
+		<lu>
+            <h1>Event Start:</h1> <h2>@item.EventStartDateTime</h2>
+			<h1>Name of the event:</h1> <h2>@item.EventName</h2>
+			<h1>Event description: </h1> <h3>@item.EventHtmlDescription</h3>
+            <h1>---------------------------------</h1>
+			<h3>Venue: @item.VenueName</h3>
+			<h3>Adress: @item.Address</h3>
+			<h3>City: @item.City</h3>
+			<h3>Country: @item.Country</h3>
+
+			@Html.ActionLink("Add to Cart!", "Cart", item, new { @class = "btn btn-success" })
+
+			@*<input type="submit" value="Boka nu!" />*@
+
+
+		</lu>
+	</form>
+}
