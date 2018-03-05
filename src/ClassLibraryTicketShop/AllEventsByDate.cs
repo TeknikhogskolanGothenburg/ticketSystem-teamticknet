@@ -9,6 +9,8 @@ namespace ClassLibraryTicketShop
     public class AllEventsByDate
     {
 		[Required]
+		public int TicketEventDateID { get; set; }
+		[Required]
 		public DateTime EventStartDateTime { get; set; }
 		[Required]
 		public string EventName { get; set; }

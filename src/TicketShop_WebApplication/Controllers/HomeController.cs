@@ -19,7 +19,7 @@ namespace TicketShop_WebApplication.Controllers
 
 		public IActionResult Index()
         {
-            return RedirectToAction("AllEvents", "Home");
+            return View();
         }
 
 		public IActionResult AllEvents()
@@ -34,9 +34,15 @@ namespace TicketShop_WebApplication.Controllers
 				cart.Add(events);
 			}
 
-			return View();
+			return View(new UserAndTicket { events = cart });
 
 		}
+
+		//public IActionResult Delete(AllEventsByDate events)
+		//{
+		//	cart.Remove(events);
+		//	return RedirectToAction("Home");
+		//}
 
 		public IActionResult About()
         {

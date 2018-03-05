@@ -15,7 +15,8 @@ namespace TicketShopWeb.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult StartPage()
+		TicketApi ticketApi = new TicketApi();
+		public IActionResult StartPage()
         {
             return View();
         }
@@ -24,7 +25,7 @@ namespace TicketShopWeb.Controllers
         {
 			if (!string.IsNullOrEmpty(Vname))
 			{
-				TicketApi ticketApi = new TicketApi();
+			
 				ticketApi.VenuesAdd(new Venue()
 				{
 					VenueName = Vname,
@@ -40,7 +41,7 @@ namespace TicketShopWeb.Controllers
 		{
 			if (!string.IsNullOrEmpty(name))
 			{
-				TicketApi ticketApi = new TicketApi();
+				
 				ticketApi.EventsAdd(new TicketEvent()
 				{
 					EventName = name,
@@ -54,7 +55,7 @@ namespace TicketShopWeb.Controllers
         {
             if (!string.IsNullOrEmpty(Fname))
             {
-                TicketApi ticketApi = new TicketApi();
+                
                 ticketApi.UserReg(new UserReg()
                 {
                     Firstname = Fname,
@@ -67,7 +68,17 @@ namespace TicketShopWeb.Controllers
 
         }
 
-		
+		public IActionResult ShowAllEvents()
+		{
+			return View(ticketApi.GetEventsAndVenues());
+		}
+
+		public IActionResult Delete()
+		{
+			return View();
+		}
+
+
 
 
 

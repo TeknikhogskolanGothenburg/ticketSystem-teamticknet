@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibraryTicketShop
 {
-    class UserAndTicket
+    public class UserAndTicket
     {
 		public UserReg user { get; set; }
 		public List<AllEventsByDate> events { get; set; }

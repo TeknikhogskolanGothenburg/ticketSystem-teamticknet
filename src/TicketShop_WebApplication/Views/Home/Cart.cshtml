@@ -1,0 +1,43 @@
+﻿@model ClassLibraryTicketShop.UserAndTicket
+
+
+
+<table class="table">
+	<thead>
+
+		<tr>
+			<th>
+				<h6>Event</h6>
+			</th>
+			<th>
+				<h6>Description</h6>
+			</th>
+			<th>
+				<h6>Date</h6>
+			</th>
+
+			<th></th>
+		</tr>
+
+	</thead>
+	<tbody>
+		@foreach (var item in Model.events)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.EventName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.EventHtmlDescription)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.EventStartDateTime)
+				</td>
+				<td>
+					@Html.ActionLink("Delete", "Delete", new { @class = "btn btn-success" })
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+

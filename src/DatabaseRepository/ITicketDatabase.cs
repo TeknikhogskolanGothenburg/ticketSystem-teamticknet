@@ -65,5 +65,6 @@ namespace TicketSystem.DatabaseRepository
 		List<AllEventsByDate> EventDateFindEventsAndVenues();
 
 
+
 	}
 }
