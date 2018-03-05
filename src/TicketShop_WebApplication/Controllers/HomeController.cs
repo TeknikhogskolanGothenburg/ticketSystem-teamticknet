@@ -27,7 +27,7 @@ namespace TicketShop_WebApplication.Controllers
 			return View(ticketApi.GetEventsAndVenues());
 		}
 
-		public IActionResult Buy(AllEventsByDate events)
+		public IActionResult Cart(AllEventsByDate events)
 		{
 			if (events.EventName != null || events.EventName != "")
 			{

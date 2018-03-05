@@ -57,8 +57,8 @@ namespace TicketShopWeb.Controllers
                 TicketApi ticketApi = new TicketApi();
                 ticketApi.UserReg(new UserReg()
                 {
-                    FName = Fname,
-                    LName = Lname,
+                    Firstname = Fname,
+                    Lastname = Lname,
                     Password = psw,
                     Email = email
                 });
