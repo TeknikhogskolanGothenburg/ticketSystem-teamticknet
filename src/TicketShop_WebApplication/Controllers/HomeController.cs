@@ -29,10 +29,11 @@ namespace TicketShop_WebApplication.Controllers
 
 		public IActionResult Cart(AllEventsByDate events)
 		{
-			if (events.EventName != null || events.EventName != "")
+			if (events.EventName != null)
 			{
 				cart.Add(events);
 			}
+			
 
 			return View(new UserAndTicket { events = cart });
 
