@@ -98,7 +98,7 @@ namespace TicketSystem.DatabaseRepository
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEventDates.TicketEventDateID, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.Address From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID ").ToList();
+                var values = connection.Query<AllEventsByDate>("SELECT TicketEventDates.EventStartDateTime, TicketEventDates.TicketEventDateID, TicketEvents.EventName, TicketEvents.EventHtmlDescription, Venues.VenueName, Venues.Country, Venues.City, Venues.Address From TicketEventDates JOIN Venues ON Venues.VenueID = TicketEventDates.VenueID JOIN TicketEvents ON TicketEvents.TicketEventID = TicketEventDates.TicketEventID ").ToList();
                 return values;
             }
         }
