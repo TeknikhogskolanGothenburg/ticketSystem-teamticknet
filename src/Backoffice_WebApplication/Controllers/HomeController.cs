@@ -76,8 +76,8 @@ namespace TicketShopWeb.Controllers
 		public IActionResult Delete(int EventId)
 		{
 
-			int id = 0;
-			ticketApi.DeleteEventInfo(id);
+			
+			ticketApi.DeleteEventInfo(EventId);
 
 			return View();
 		}

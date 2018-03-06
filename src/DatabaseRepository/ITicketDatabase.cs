@@ -35,7 +35,7 @@ namespace TicketSystem.DatabaseRepository
         /// </summary>
         /// <param name="query">A text which is user i looking for in the venues</param>
         /// <returns>A list of venus matching the query</returns>
-        List<Venue> VenuesFind(string query);
+        //List<Venue> VenuesFind(string query);
 
         /// <summary>
         /// Find all Registered users matching the query

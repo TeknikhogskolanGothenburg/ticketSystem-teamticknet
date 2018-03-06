@@ -44,20 +44,16 @@ namespace TicketShop_WebApplication.Controllers
 		//	return RedirectToAction("Home");
 		//}
 
-		public IActionResult About()
-        {
-            if (events.EventName != null || events.EventName != "")
-            {
-                cart.Add(events);
-            }
+		//public IActionResult About()
+  //      {
+  //          if (events.EventName != null || events.EventName != "")
+  //          {
+  //              cart.Add(events);
+  //          }
 
-            return View(new UserAndTicket { events = cart });
-        }
+  //          return View(new UserAndTicket { events = cart });
+  //      }
 
-        public IActionResult AllEvents()
-        {
-            return View(ticketApi.GetEventsAndVenues());
-        }
 
         public IActionResult Error()
         {
