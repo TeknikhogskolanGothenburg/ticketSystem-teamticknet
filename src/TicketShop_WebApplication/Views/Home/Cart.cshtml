@@ -1,70 +1,81 @@
 ﻿@model ClassLibraryTicketShop.UserAndTicket
 
-<thead>
+<style>
+input[type=text], select {
+    width: auto;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
+input[type=submit] {
+    width: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+
+<thead>
 	<tr>
 		<th>
-			<h6>Event</h6>
+			<h2>Shopping Cart</h2>
 		</th>
-		<th>
-			<h6>Description</h6>
-		</th>
-		<th>
-			<h1>Events in your shopping cart: </h1>
-		</th>
-
-		<th></th>
 	</tr>
-
 </thead>
 
 @foreach (var item in @Model.events)
 {
-
 	<form action="~/Home/Delete" method="delete">
-
-		<lu>
+		<div>
 			<input type="hidden" name="EventId" value="@item.TicketEventDateID" />
-
-			<h5>@item.EventName</h5>
-			<h5>@item.EventHtmlDescription</h5>
-			<h5>@item.EventStartDateTime</h5>
-
-
+                <ul>
+                    <li><h3>Event Name: @item.EventName</h3></li>
+                    <li><h3>Event Start: @item.EventStartDateTime</h3></li>
+                    <li><h3>Event Description: @item.EventHtmlDescription</h3></li>
+                </ul>
 			<input type="submit" value="Delete" />
-
-
-		</lu>
+		</div>
 	</form>
 }
 
 <h4>Enter all your details to complete your order!</h4>
 <hr />
-<div class="row">
-	<div class="col-md-4">
+	<div>
 		<form asp-action="Buy">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<div class="form-group">
 				<label asp-for="user.Firstname" class="control-label"></label>
-				<input asp-for="user.Firstname" class="form-control" />
+				<input type="text" asp-for="user.Firstname" class="form-control" />
 				<span asp-validation-for="user.Firstname" class="text-danger"></span>
-			</div>
-			<div class="form-group">
+
 				<label asp-for="user.Lastname" class="control-label"></label>
-				<input asp-for="user.Lastname" class="form-control" />
+				<input type="text" asp-for="user.Lastname" class="form-control" />
 				<span asp-validation-for="user.Lastname" class="text-danger"></span>
-			</div>
-			<div class="form-group">
+
 				<label asp-for="user.Email" class="control-label"></label>
-				<input asp-for="user.Email" class="form-control" />
+				<input type="text" asp-for="user.Email" class="form-control" />
 				<span asp-validation-for="user.Email" class="text-danger"></span>
-			</div>
-			<div class="form-group">
+
 				<input type="submit" value="Buy" class="btn btn-success" />
-			</div>
 		</form>
 	</div>
-</div>
 
 
 
