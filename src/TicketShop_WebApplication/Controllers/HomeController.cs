@@ -39,24 +39,26 @@ namespace TicketShop_WebApplication.Controllers
 
 		}
 
-		//public IActionResult Delete(int id)
-		//{
-		//	cart.Remove();
-		//	return RedirectToAction("Home");
-		//}
+		public IActionResult Delete(int EventId)
+		{
+			
+			cart.RemoveAll(c => c.TicketEventDateID == EventId);
+			return RedirectToAction("Cart", "Home");
+			
+		}
 
 		//public IActionResult About()
-  //      {
-  //          if (events.EventName != null || events.EventName != "")
-  //          {
-  //              cart.Add(events);
-  //          }
+		//      {
+		//          if (events.EventName != null || events.EventName != "")
+		//          {
+		//              cart.Add(events);
+		//          }
 
-  //          return View(new UserAndTicket { events = cart });
-  //      }
+		//          return View(new UserAndTicket { events = cart });
+		//      }
 
 
-        public IActionResult Error()
+		public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }

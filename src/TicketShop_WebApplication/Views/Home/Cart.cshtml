@@ -1,8 +1,53 @@
 ﻿@model ClassLibraryTicketShop.UserAndTicket
 
+<thead>
+
+	<tr>
+		<th>
+			<h6>Event</h6>
+		</th>
+		<th>
+			<h6>Description</h6>
+		</th>
+		<th>
+			<h1>Events in your shopping cart: </h1>
+		</th>
+
+		<th></th>
+	</tr>
+
+</thead>
+
+@foreach (var item in @Model.events)
+{
+
+	<form action="~/Home/Delete" method="delete">
+
+		<lu>
+			<input type="hidden" name="EventId" value="@item.TicketEventDateID" />
+			
+			<h5>@item.EventName</h5>
+			 <h5>@item.EventHtmlDescription</h5>
+			<h5>@item.EventStartDateTime</h5>
 
 
-<table class="table">
+			<input type="submit" value="Delete" />
+
+
+		</lu>
+	</form>
+}
+
+
+
+
+
+
+
+
+
+
+@*<table class="table">
 	<thead>
 
 		<tr>
@@ -20,24 +65,29 @@
 		</tr>
 
 	</thead>
-	<tbody>
-		@foreach (var item in Model.events)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.EventName)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.EventHtmlDescription)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.EventStartDateTime)
-				</td>
-				<td>
-					@Html.ActionLink("Delete", "Delete", new { @class = "btn btn-success" })
-				</td>
-			</tr>
-		}
-	</tbody>
-</table>
+
+		<tbody>
+			@foreach (var item in Model.events)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.EventName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.EventHtmlDescription)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.EventStartDateTime)
+					</td>
+					<td>
+						@*<input type="submit" value="Delete" />*@
+@*@Html.ActionLink("Delete", "Delete", new { @class = "btn btn-success"})*@
+@*</td>
+						</tr>
+
+				}
+			</tbody>
+
+	</table>*@
+
 
