@@ -11,25 +11,25 @@ using Newtonsoft.Json.Linq;
 
 namespace Restapi_Webapplication.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/SiteUser")]
-    public class SiteUserController : Controller
-    {
-        TicketDatabase database = new TicketDatabase();
-        // GET: api/SiteUser
-        [HttpGet]
-        public List<SiteUser> GetSiteUser(string query)
-        {
-            return database.SiteUserFind(query);
-        }
+    //[Produces("application/json")]
+    //[Route("api/SiteUser")]
+    //public class SiteUserController : Controller
+    //{
+    //    TicketDatabase database = new TicketDatabase();
+    //    // GET: api/SiteUser
+    //    [HttpGet]
+    //    public List<SiteUser> GetSiteUser(string query)
+    //    {
+    //        return database.SiteUserFind(query);
+    //    }
        
-        // POST: api/SiteUser
-        [HttpPost]
-        public void Post([FromBody]SiteUser user)
-        {
-               database.SiteUserAdd(user.Email, user.Password,user.IsVaild);
+    //    // POST: api/SiteUser
+    //    [HttpPost]
+    //    public void Post([FromBody]SiteUser user)
+    //    {
+    //           database.SiteUserAdd(user.Email, user.Password,user.IsVaild);
 
-        }
+    //    }
 
 
 
@@ -57,7 +57,7 @@ namespace Restapi_Webapplication.Controllers
         //public void Delete(int id)
         //{
         //}
-    }
+    //}
 }
 
 

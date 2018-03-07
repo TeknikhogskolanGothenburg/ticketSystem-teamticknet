@@ -53,31 +53,31 @@ namespace TicketShop_WebApplication.Controllers
 			{
 
 				var order = new Order();
-				var existingUser = ticketApi.CheckIfCustomerExist(user).Result;
+				var existingUser = ticketApi.ExistingUser(user);
 
 				if (existingUser != null)
 				{
 
 					order.Events = cart;
 					order.OrderDate = DateTime.Now;
-					order.CustomerId = existingUser.ID;
+					//order.CustomerId = existingUser.ID;
 
-					
+
 				}
 				else
 				{
-					var newUser = ticketApi.CreateUser(user).Result;
+					var newUser = ticketApi.AddUser(user).Result;
 
 					order.Events = cart;
 					order.OrderDate = DateTime.Now;
-					order.CustomerId = existingUser.ID;
+					//order.CustomerId = existingUser.ID;
 				}
-				var orderResult = ticketApi.CreateOrder(order);
+				//var orderResult = ticketApi.CreateOrder(order);
 				return View();
 			}
 			else
 			{
-				return View();
+				return RedirectToAction("Cart", "Home");
 			}
 			
 			

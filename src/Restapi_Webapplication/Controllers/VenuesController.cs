@@ -40,26 +40,5 @@ namespace Restapi_Webapplication.Controllers
             
 		}
 
-
-
-
-		//     // POST api/Venues
-		//     [HttpPost]
-		//     public void Post([FromBody]string value)
-		//     {
-		//return database.VenueAdd(["Vname"].value, ["Address"].value, )
-		//     }
-
-		//     // PUT api/Venues/5
-		//     [HttpPut("{id}")]
-		//     public void Put(int id, [FromBody]string value)
-		//     {
-		//     }
-
-		//     // DELETE api/Venues/5
-		//     [HttpDelete("{id}")]
-		//     public void Delete(int id)
-		//     {
-		//     }
 	}
 }

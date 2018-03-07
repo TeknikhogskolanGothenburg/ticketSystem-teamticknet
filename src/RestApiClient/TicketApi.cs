@@ -4,8 +4,7 @@ using TicketSystem.RestApiClient.Model;
 using ClassLibraryTicketShop;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
-
+using System.Threading.Tasks;
 
 namespace TicketSystem.RestApiClient
 {
@@ -104,13 +103,87 @@ namespace TicketSystem.RestApiClient
             return response.Data;
         }
 
-        public void UserReg (UserReg newUser)
+        public async Task<UserReg> AddUser (UserReg newUser)
         {
             var client = new RestClient("http://localhost:61828");
-            var request = new RestRequest("api/RegUser", Method.POST);
+            var request = new RestRequest("api/UserReg", Method.POST);
             request.AddJsonBody(newUser);
-            client.Execute(request);
-        }
+			//client.Execute(request);
+
+			request.AddHeader("Accept", "application/json");
+
+			var jsonObject = JsonConvert.SerializeObject(newUser);
+			request.AddParameter("application/json", jsonObject, ParameterType.RequestBody);
+
+			var taskCompletion = new TaskCompletionSource<IRestResponse>();
+
+			var handle = client.ExecuteAsync(request, r => taskCompletion.SetResult(r));
+
+			var response = (RestResponse)(await taskCompletion.Task);
+
+			return JsonConvert.DeserializeObject<UserReg>(response.Content);
+		}
+
+
+		public async Task<UserReg> ExistingUser(UserReg user)
+		{
+			var client = new RestClient("http://localhost:61828");
+			var request = new RestRequest("api/UserReg", Method.GET);
+			request.AddHeader("Accept", "application/json");
+			
+
+			var jsonObject = JsonConvert.SerializeObject(user);
+			request.AddParameter("application/json", jsonObject, ParameterType.RequestBody);
+
+			var taskCompletion = new TaskCompletionSource<IRestResponse>();
+
+			client.ExecuteAsync(request, r => taskCompletion.SetResult(r));
+
+			var response = (RestResponse)(await taskCompletion.Task);
+
+			return JsonConvert.DeserializeObject<UserReg>(response.Content);
+		}
+
+
+
+		//public async Task<Customer> CheckIfCustomerExist(Customer customer)
+		//{
+		//	var client = new RestClient(new Uri("http://localhost:50987/" + Customer));
+		//	var request = new RestRequest("CheckIfCustomerExist", Method.POST);
+		//	request.AddHeader("Accept", "application/json");
+
+		//	var jsonObject = JsonConvert.SerializeObject(customer);
+		//	request.AddParameter("application/json", jsonObject, ParameterType.RequestBody);
+
+		//	var taskCompletion = new TaskCompletionSource<IRestResponse>();
+
+		//	client.ExecuteAsync(request, r => taskCompletion.SetResult(r));
+
+		//	var response = (RestResponse)(await taskCompletion.Task);
+
+		//	return JsonConvert.DeserializeObject<Customer>(response.Content);
+
+		//}
+
+
+		//public async Task<Customer> CreateCustomer(Customer customer)
+		//{
+		//	var client = new RestClient(new Uri("http://localhost:50987/" + Customer));
+		//	var request = new RestRequest("CreateCustomer", Method.POST);
+		//	request.AddHeader("Accept", "application/json");
+
+		//	var jsonObject = JsonConvert.SerializeObject(customer);
+		//	request.AddParameter("application/json", jsonObject, ParameterType.RequestBody);
+
+		//	var taskCompletion = new TaskCompletionSource<IRestResponse>();
+
+		//	var handle = client.ExecuteAsync(request, r => taskCompletion.SetResult(r));
+
+		//	var response = (RestResponse)(await taskCompletion.Task);
+
+		//	return JsonConvert.DeserializeObject<Customer>(response.Content);
+
+		//}
 
 		public void DeleteEventInfo(int id)
 		{

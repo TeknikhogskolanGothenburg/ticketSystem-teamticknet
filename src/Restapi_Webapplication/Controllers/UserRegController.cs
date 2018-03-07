@@ -16,45 +16,46 @@ namespace Restapi_Webapplication.Controllers
     public class UserRegController : Controller
     {
 
-        // GET: api/SearchUserReg
-        TicketDatabase database = new TicketDatabase();
         
-        [HttpGet("{query}")]
-        public List<UserReg> GetUserReg(string query)
-        {
-            return database.UserRegFind(query);
-        }
+        TicketDatabase database = new TicketDatabase();
+// GET: api/UserReg/Get
+		
+		[HttpGet]
+		public List<UserReg> Get([FromBody]UserReg user)
+		{
+			return database.UserRegFind(user);
+		}
 
-        // POST: api/UserReg
-        //[HttpPost]
-        //public void Post([FromBody]UserReg user)
-        //{
-        //    database.UserRegAdd(user.FName, user.LName, user.Password,user.Email);
-        //}
+		//POST: api/UserReg
+		[HttpPost]
+		public void Post([FromBody]UserReg user)
+		{
+			database.UserRegAdd(user.Firstname, user.Lastname, user.Email);
+		}
 
-        //// GET: api/UserReg/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+		//// GET: api/UserReg/5
+		//[HttpGet("{id}", Name = "Get")]
+		//public string Get(int id)
+		//{
+		//    return "value";
+		//}
 
-        //// POST: api/UserReg
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
+		//// POST: api/UserReg
+		//[HttpPost]
+		//public void Post([FromBody]string value)
+		//{
+		//}
 
-        //// PUT: api/UserReg/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+		//// PUT: api/UserReg/5
+		//[HttpPut("{id}")]
+		//public void Put(int id, [FromBody]string value)
+		//{
+		//}
 
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
-    }
+		//// DELETE: api/ApiWithActions/5
+		//[HttpDelete("{id}")]
+		//public void Delete(int id)
+		//{
+		//}
+	}
 }

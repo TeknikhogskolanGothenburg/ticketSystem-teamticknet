@@ -51,18 +51,17 @@ namespace TicketShopWeb.Controllers
 			return View();
 		}
 
-        public IActionResult UserReg(string Fname, string Lname, string psw, string email)
+        public async Task<IActionResult> UserRegAsync(string Fname, string Lname, string email)
         {
             if (!string.IsNullOrEmpty(Fname))
             {
-                
-                ticketApi.UserReg(new UserReg()
-                {
-                    Firstname = Fname,
-                    Lastname = Lname,
-                    Password = psw,
-                    Email = email
-                });
+
+				await ticketApi.AddUser(new UserReg()
+				{
+					Firstname = Fname,
+					Lastname = Lname,
+					Email = email
+				});
             }
             return View();
 

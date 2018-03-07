@@ -14,27 +14,27 @@ namespace TicketSystem.DatabaseRepository
         static string ConnectionString = DatabaseConnection.ConnectionString;
 
 
-        //User UserRegFind takes first name and lastname WITHOUT space sepparator or Email.
-        public List<UserReg> UserRegFind(string query)
-        {
-            string connectionString = ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE (Firstname + Lastname) = '%" + query + "%' OR Email ='%" + query+ "'%").ToList();
-                connection.Close();
-                return values;
-            }
-        }
+		//User UserRegFind takes first name and lastname WITHOUT space sepparator or Email.
+		public List<UserReg> UserRegFind(UserReg user)
+		{
+			string connectionString = ConnectionString;
+			using (var connection = new SqlConnection(connectionString))
+			{
+				connection.Open();
+				var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE Firstname = '@firstname' AND Lastname = '@lastname'", new {firstname = user.Firstname, lastname = user.Lastname }).ToList();
 
-        
-        public UserReg UserRegAdd(string fname, string lname, string email)
+					return values;
+			}
+		}
+
+
+		public UserReg UserRegAdd(string fname, string lname, string email)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                connection.Query("insert into SiteUser([Firstname],[Lastname],[Email]) values(@Firstname,@Lastname, @Email)", new { @Firstname = fname, @Lastname = lname, @Email= email });
+                connection.Query("insert into UserReg(Firstname, Lastname, Email) values(@Firstname, @Lastname, @Email)", new { Firstname = fname, Lastname = lname, Email= email });
                 var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('UserReg') AS Current_Identity").First();
                 var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE ID=@Id", new { Id = addedVenueQuery }).First();
                 connection.Close();

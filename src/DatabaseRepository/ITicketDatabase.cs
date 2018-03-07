@@ -42,7 +42,10 @@ namespace TicketSystem.DatabaseRepository
         /// </summary>
         /// <param name="query">A text which is user i looking for in the UserReg</param>
         /// <returns>A list of RegUsers matching the query</returns>
-        List<UserReg> UserRegFind(string query);
+        //List<UserReg> UserRegFind(string query);
+
+
+
         /// <summary>
         /// Find all Site users matching the query
         /// </summary>
@@ -56,7 +59,7 @@ namespace TicketSystem.DatabaseRepository
         /// <param name="name">Name of the event</param>
         /// <param name="description">A desription of the event, html markup of the event is allowed</param>
         /// <returns>An object representing the newly created UserReg</returns>
-        UserReg UserRegAdd(string fName, string lName, string password, string email);
+        UserReg UserRegAdd(string fName, string lName, string email);
 
         /// <summary>
         /// Add a new Event to the database
