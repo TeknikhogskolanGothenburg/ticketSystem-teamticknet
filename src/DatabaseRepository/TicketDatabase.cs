@@ -28,37 +28,13 @@ namespace TicketSystem.DatabaseRepository
         }
 
         
-        public List<SiteUser> SiteUserFind(string query)
+        public UserReg UserRegAdd(string fname, string lname, string email)
         {
             string connectionString = ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE Email = '%" + query + "%' AND IsValid = True '%").ToList();
-                connection.Close();
-                return values;
-            }
-        }
-        public SiteUser SiteUserAdd(string email, string password, bool isValid)
-        {
-            string connectionString = ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                connection.Query("insert into SiteUser([Email],[Password],[IsValid]) values(@Email,@Password, @IsValid)", new { Email = email , Password = password, IsValid = isValid});
-                var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('SiteUser') AS Current_Identity").First();
-                var values = connection.Query<SiteUser>("SELECT * FROM SiteUser WHERE ID=@Id", new { Id = addedVenueQuery }).First();
-                connection.Close();
-                return values;
-            }
-        }
-        public UserReg UserRegAdd(string fname, string lname, string password, string email)
-        {
-            string connectionString = ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                connection.Query("insert into SiteUser([Firstname],[Lastname],[Password],[Email]) values(@Firstname,@Lastname, @Password, @Email)", new { Firstname = fname, Lastname = lname, Password = password, Email= email });
+                connection.Query("insert into SiteUser([Firstname],[Lastname],[Email]) values(@Firstname,@Lastname, @Email)", new { @Firstname = fname, @Lastname = lname, @Email= email });
                 var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('UserReg') AS Current_Identity").First();
                 var values = connection.Query<UserReg>("SELECT * FROM UserReg WHERE ID=@Id", new { Id = addedVenueQuery }).First();
                 connection.Close();
@@ -149,6 +125,8 @@ namespace TicketSystem.DatabaseRepository
                 return values;
             }
         }
+
+
        
         
     }

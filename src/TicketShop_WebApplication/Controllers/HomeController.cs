@@ -47,6 +47,42 @@ namespace TicketShop_WebApplication.Controllers
 			
 		}
 
+		public IActionResult Buy(UserReg user)
+		{
+			if (user.Firstname != null && user.Lastname != null)
+			{
+
+				var order = new Order();
+				var existingUser = ticketApi.CheckIfCustomerExist(user).Result;
+
+				if (existingUser != null)
+				{
+
+					order.Events = cart;
+					order.OrderDate = DateTime.Now;
+					order.CustomerId = existingUser.ID;
+
+					
+				}
+				else
+				{
+					var newUser = ticketApi.CreateUser(user).Result;
+
+					order.Events = cart;
+					order.OrderDate = DateTime.Now;
+					order.CustomerId = existingUser.ID;
+				}
+				var orderResult = ticketApi.CreateOrder(order);
+				return View();
+			}
+			else
+			{
+				return View();
+			}
+			
+			
+		}
+
 		//public IActionResult About()
 		//      {
 		//          if (events.EventName != null || events.EventName != "")

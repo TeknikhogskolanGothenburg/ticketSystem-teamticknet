@@ -25,9 +25,9 @@
 
 		<lu>
 			<input type="hidden" name="EventId" value="@item.TicketEventDateID" />
-			
+
 			<h5>@item.EventName</h5>
-			 <h5>@item.EventHtmlDescription</h5>
+			<h5>@item.EventHtmlDescription</h5>
 			<h5>@item.EventStartDateTime</h5>
 
 
@@ -38,6 +38,33 @@
 	</form>
 }
 
+<h4>Enter all your details to complete your order!</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Buy">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="user.Firstname" class="control-label"></label>
+				<input asp-for="user.Firstname" class="form-control" />
+				<span asp-validation-for="user.Firstname" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="user.Lastname" class="control-label"></label>
+				<input asp-for="user.Lastname" class="form-control" />
+				<span asp-validation-for="user.Lastname" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="user.Email" class="control-label"></label>
+				<input asp-for="user.Email" class="form-control" />
+				<span asp-validation-for="user.Email" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Buy" class="btn btn-success" />
+			</div>
+		</form>
+	</div>
+</div>
 
 
 

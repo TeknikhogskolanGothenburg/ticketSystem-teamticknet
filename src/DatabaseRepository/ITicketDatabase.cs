@@ -48,7 +48,7 @@ namespace TicketSystem.DatabaseRepository
         /// </summary>
         /// <param name="query">A text which is user i looking for in the SiteUser</param>
         /// <returns>A list of SiteUsers matching the query</returns>
-        List<SiteUser> SiteUserFind(string query);
+        //List<SiteUser> SiteUserFind(string query);
 
         /// <summary>
         /// Add a new Event to the database
@@ -65,7 +65,7 @@ namespace TicketSystem.DatabaseRepository
         /// <param password="description">Password to set</param>
         /// <param isValid="description">sets with integer if user valid or not (0 or 1) </param>
         /// <returns>  An object representing the newly created SiteUser</returns>
-        SiteUser SiteUserAdd(string email, string password, bool isValid);
+        //SiteUser SiteUserAdd(string email, string password, bool isValid);
 
         List<AllEventsByDate> EventDateFindEventsAndVenues();
     }
