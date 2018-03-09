@@ -33,8 +33,15 @@ namespace Restapi_Webapplication.Controllers
 		[HttpDelete]
 		public void Delete([FromBody]int id)
 		{
-			TicketSystem.DatabaseRepository.TicketDatabase.DeleteEventsAndVenues(id);
+			tbd.DeleteEventsAndVenues(id);
 		}
+
+		[HttpPost]
+		public void Post([FromBody]AllEventsByDate allEvents)
+		{
+			tbd.AddAllEventsByDate(allEvents);
+		}
+		
 
 		
 		

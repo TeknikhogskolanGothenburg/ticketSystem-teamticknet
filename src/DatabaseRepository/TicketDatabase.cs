@@ -12,8 +12,7 @@ namespace TicketSystem.DatabaseRepository
     public class TicketDatabase : ITicketDatabase
     {
         static string ConnectionString = DatabaseConnection.ConnectionString;
-
-
+		
 		//User UserRegFind takes first name and lastname WITHOUT space sepparator or Email.
 		public List<UserReg> UserRegFind(UserReg user)
 		{
@@ -26,7 +25,6 @@ namespace TicketSystem.DatabaseRepository
 					return values;
 			}
 		}
-
 
 		public UserReg UserRegAdd(string fname, string lname, string email)
         {
@@ -56,32 +54,6 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-
-        public TicketEvent EventAdd(string name, string description)
-        {
-            string connectionString = ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                connection.Query("insert into TicketEvents(EventName, EventHtmlDescription) values(@Name, @Description)", new { Name = name, Description = description });
-                var addedEventQuery = connection.Query<int>("SELECT IDENT_CURRENT ('TicketEvents') AS Current_Identity").First();
-                var values = connection.Query<TicketEvent>("SELECT * FROM TicketEvents WHERE TicketEventID=@Id", new { Id = addedEventQuery }).First();
-                connection.Close();
-                return values;
-            }
-        }
-
-		public List<TicketEvent> EventFindSpecifik(string query)
-		{
-			string connectionString = ConnectionString;
-			using (var connection = new SqlConnection(connectionString))
-			{
-				connection.Open();
-				var values = connection.Query<TicketEvent>("SELECT * FROM TicketEvents WHERE EventName like '%" + query + "%' OR EventHtmlDescription like '%" + query + "%'").ToList();
-				return values;
-			}
-		}
-
         public List<AllEventsByDate> EventDateFindEventsAndVenues()
         {
             string connectionString = ConnectionString;
@@ -93,7 +65,7 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
-		public static void DeleteEventsAndVenues(int id)
+		public void DeleteEventsAndVenues(int id)
 		{
 
 			
@@ -106,41 +78,36 @@ namespace TicketSystem.DatabaseRepository
 			}
 		}
 
-		public Venue VenueAdd(string name, string address, string city, string country)
+
+		public TicketEventDate AddAllEventsByDate (AllEventsByDate allEvents)
 		{
 			string connectionString = ConnectionString;
 			using (var connection = new SqlConnection(connectionString))
 			{
-				connection.Open();
-				connection.Query("insert into Venues([VenueName],[Address],[City],[Country]) values(@Name,@Address, @City, @Country)", new { Name = name, Address = address, City = city, Country = country });
-				var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Venues') AS Current_Identity").First();
-				var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueID=@Id", new { Id = addedVenueQuery }).First();
-				connection.Close();
+			connection.Open();
+
+			// Add Event
+			connection.Query("insert into TicketEvents(EventName, EventHtmlDescription) values(@Name, @Description)", new { Name = allEvents.EventName, Description = allEvents.EventHtmlDescription });
+			var events = connection.Query<int>("SELECT IDENT_CURRENT ('TicketEvents') AS Current_Identity").First();
+			connection.Query<TicketEvent>("SELECT * FROM TicketEvents WHERE TicketEventID=@Id", new { Id = events }).First();
+			// Add Venue
+			connection.Query("insert into Venues([VenueName],[Address],[City],[Country]) values(@Name,@Address, @City, @Country)", new { Name = allEvents.VenueName, Address = allEvents.Address, City = allEvents.City, Country = allEvents.Country });
+			var venue = connection.Query<int>("SELECT IDENT_CURRENT ('Venues') AS Current_Identity").First();
+			connection.Query<Venue>("SELECT * FROM Venues WHERE VenueID=@Id", new { Id = venue }).First();
+			// Add to TicketEventDate(s)
+			connection.Query("insert into TicketEventDates([EventStartDateTime],[VenueId],[TicketEventID]) values(@DateTime,@VenueId, @TicketEventID)", new { DateTime = allEvents.EventStartDateTime, VenueId = venue, TicketEventID = events });
+			var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('TicketEventDates') AS Current_Identity").First();
+			var values = connection.Query<TicketEventDate>("SELECT * FROM Venues WHERE VenueID=@Id", new { Id = addedVenueQuery }).First();
+			connection.Close();
 				return values;
 			}
+
+			
 		}
 
      
-        public static List<Venue> VenuesSpecific(string query)
-		{
-			using (var connection = new SqlConnection(ConnectionString))
-			{
-				connection.Open();
-				var values = connection.Query<Venue>("SELECT * FROM Venues WHERE VenueName like '%" + query + "%' OR Address like '%" + query + "%' OR Email like '%" + query + "%' OR Country like '%" + query + "%'").ToList();
-                return values;
-			}
-		}
+       
 
-        public List<Venue> VenuesAll()
-        {
-            var connectionString = ConnectionString;
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                var values = connection.Query<Venue>("SELECT * FROM Venues").ToList();
-                return values;
-            }
-        }
 
 
        

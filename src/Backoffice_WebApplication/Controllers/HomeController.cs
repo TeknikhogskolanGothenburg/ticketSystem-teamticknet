@@ -21,34 +21,23 @@ namespace TicketShopWeb.Controllers
             return View();
         }
 
-        public IActionResult Venues(string Vname, string address, string city, string country)
-        {
-			if (!string.IsNullOrEmpty(Vname))
+		public IActionResult Events(string name, string description, string Vname, string address, string city, string country, string eventStart)
+		{
+			if (!string.IsNullOrEmpty(name))
 			{
-			
-				ticketApi.VenuesAdd(new Venue()
+				
+				ticketApi.DateEventAdd(new AllEventsByDate()
 				{
+					EventStartDateTime = DateTime.Parse(eventStart),
+					EventName = name,
+					EventHtmlDescription = description,
 					VenueName = Vname,
 					Address = address,
 					City = city,
 					Country = country
 				});
 			}
-			return View();
-        }
-
-		public IActionResult Events(string name, string description)
-		{
-			if (!string.IsNullOrEmpty(name))
-			{
-				
-				ticketApi.EventsAdd(new TicketEvent()
-				{
-					EventName = name,
-					EventHtmlDescription = description
-				});
-			}
-			return View();
+			return RedirectToAction("ShowAllEvents", "Home");
 		}
 
         public async Task<IActionResult> UserRegAsync(string Fname, string Lname, string email)
@@ -78,7 +67,7 @@ namespace TicketShopWeb.Controllers
 			
 			ticketApi.DeleteEventInfo(EventId);
 
-			return Content("Successfull delete");
+			return RedirectToAction("ShowAllEvents", "Home");
 		}
 
 

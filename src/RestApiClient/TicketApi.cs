@@ -34,59 +34,13 @@ namespace TicketSystem.RestApiClient
             return response.Data;
         }
 
-		public List<Venue> GetVenue (string query)
+
+		public void DateEventAdd(AllEventsByDate allEvents)
 		{
-			var client = new RestClient("http://localhost:61828/api/");
-			var request = new RestRequest("Venues/{query}", Method.GET);
-			request.AddUrlSegment("query", query);
-			var response = client.Execute<List<Venue>>(request);
-
-			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-			{
-				throw new KeyNotFoundException(string.Format("No venue found", query));
-			}
-			return response.Data;
-		}
-
-		public List<TicketEvent> GetEvent (string query)
-		{
-			var client = new RestClient("http://localhost:61828/api/");
-			var request = new RestRequest("Event/{query}", Method.GET);
-			request.AddUrlSegment("query", query);
-			var response = client.Execute<List<TicketEvent>>(request);
-
-			if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-			{
-				throw new KeyNotFoundException(string.Format("No events found", query));
-			}
-			return response.Data;
-		}
-
-		public void VenuesAdd(Venue newVenue)
-		{
+			
 			var client = new RestClient("http://localhost:61828");
-			var request = new RestRequest("api/Venues", Method.POST);
-			request.AddJsonBody(newVenue);
-			client.Execute(request); 
-		}
-
-		public void EventsAdd(TicketEvent newEvent)
-		{
-			//var output = JsonConvert.SerializeObject(newVenue);
-			var client = new RestClient("http://localhost:61828");
-			var request = new RestRequest("api/Event", Method.POST);
-			request.AddJsonBody(newEvent);
-			//request.AddParameter("venue", output, ParameterType.RequestBody);
-			client.Execute(request);
-		}
-
-		public void DateEventAdd(TicketEventDate newEventDate)
-		{
-			//var output = JsonConvert.SerializeObject(newVenue);
-			var client = new RestClient("http://localhost:61828");
-			var request = new RestRequest("api/Event", Method.POST);
-			request.AddJsonBody(newEventDate);
-			//request.AddParameter("venue", output, ParameterType.RequestBody);
+			var request = new RestRequest("api/AllInfo", Method.POST);
+			request.AddJsonBody(allEvents);
 			client.Execute(request);
 		}
 
@@ -163,6 +117,8 @@ namespace TicketSystem.RestApiClient
 			return JsonConvert.DeserializeObject<Order>(response.Content);
 
 		}
+
+
 
 		public void DeleteEventInfo(int id)
 		{
