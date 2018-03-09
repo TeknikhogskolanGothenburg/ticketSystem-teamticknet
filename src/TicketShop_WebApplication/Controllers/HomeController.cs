@@ -15,6 +15,7 @@ namespace TicketShop_WebApplication.Controllers
     {
 		TicketApi ticketApi = new TicketApi();
 		public static List<AllEventsByDate> cart = new List<AllEventsByDate>();
+		public static Order order = new Order();
 
 
 		public IActionResult Index()
@@ -52,7 +53,7 @@ namespace TicketShop_WebApplication.Controllers
 			if (user.Firstname != null && user.Lastname != null)
 			{
 
-				var order = new Order();
+				
 				var existingUser = ticketApi.ExistingUser(user);
 
 				if (existingUser != null)
@@ -72,8 +73,8 @@ namespace TicketShop_WebApplication.Controllers
 					order.OrderDate = DateTime.Now;
 					//order.CustomerId = existingUser.ID;
 				}
-				//var orderResult = ticketApi.CreateOrder(order);
-				return View();
+				var orderResult = ticketApi.CreateOrder(order);
+				return View("Order", "Home");
 			}
 			else
 			{
@@ -82,6 +83,14 @@ namespace TicketShop_WebApplication.Controllers
 			
 			
 		}
+
+		public IActionResult Order (Order newOrder)
+		{
+			order = newOrder;
+			return View(order);
+		}
+
+
 
 		//public IActionResult About()
 		//      {

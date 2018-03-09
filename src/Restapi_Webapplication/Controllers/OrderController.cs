@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -12,26 +11,24 @@ using Newtonsoft.Json.Linq;
 namespace Restapi_Webapplication.Controllers
 {
     [Produces("application/json")]
-    [Route("api/UserReg")]
-    public class UserRegController : Controller
+    [Route("api/Order")]
+    public class OrderController : Controller
     {
 
-        
-        TicketDatabase database = new TicketDatabase();
-		// GET: api/UserReg/Get
-		
+		TicketDatabase database = new TicketDatabase();
+
+		// GET: api/Order
 		[HttpGet]
 		public List<UserReg> Get([FromBody]UserReg user)
 		{
 			return database.UserRegFind(user);
 		}
 
-		//POST: api/UserReg
+		//POST: api/Order
 		[HttpPost]
 		public void Post([FromBody]UserReg user)
 		{
 			database.UserRegAdd(user.Firstname, user.Lastname, user.Email);
 		}
-
 	}
 }

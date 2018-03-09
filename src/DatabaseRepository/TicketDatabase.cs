@@ -42,6 +42,20 @@ namespace TicketSystem.DatabaseRepository
             }
         }
 
+		public static Order AddOrder(Order order)
+		{
+			string connectionString = ConnectionString;
+			using (var connection = new SqlConnection(connectionString))
+			{
+				connection.Open();
+				connection.Query("insert into Order(UserId, OrderDate ) values(@UserId, @OrderDate, @TicketEventDateId)", new { UserId = order.CustomerId, OrderDate = order.OrderDate });
+				var addedVenueQuery = connection.Query<int>("SELECT IDENT_CURRENT ('Order') AS Current_Identity").First();
+				var values = connection.Query<Order>("SELECT * FROM Order WHERE Id=@Id", new { Id = addedVenueQuery }).First();
+				connection.Close();
+				return values;
+			}
+		}
+
 
         public TicketEvent EventAdd(string name, string description)
         {
