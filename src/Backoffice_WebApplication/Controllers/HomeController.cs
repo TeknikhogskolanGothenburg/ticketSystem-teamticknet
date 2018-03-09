@@ -37,7 +37,7 @@ namespace TicketShopWeb.Controllers
 					Country = country
 				});
 			}
-			return RedirectToAction("ShowAllEvents", "Home");
+			return View();
 		}
 
         public async Task<IActionResult> UserRegAsync(string Fname, string Lname, string email)
