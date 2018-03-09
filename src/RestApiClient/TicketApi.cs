@@ -168,8 +168,8 @@ namespace TicketSystem.RestApiClient
 		{
 			//var output = JsonConvert.SerializeObject(newVenue);
 			var client = new RestClient("http://localhost:61828");
-			var request = new RestRequest("api/AllInfo/{id}", Method.DELETE);
-			//request.AddJsonBody(newEventDate);
+			var request = new RestRequest("api/AllInfo/", Method.DELETE);
+			request.AddJsonBody(id);
 			//request.AddParameter("venue", output, ParameterType.RequestBody);
 			client.Execute(request);
 		}

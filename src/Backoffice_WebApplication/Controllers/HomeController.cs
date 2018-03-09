@@ -78,7 +78,7 @@ namespace TicketShopWeb.Controllers
 			
 			ticketApi.DeleteEventInfo(EventId);
 
-			return View();
+			return Content("Successfull delete");
 		}
 
 
