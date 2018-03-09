@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiClient", "RestApiClient\RestApiClient.csproj", "{5480771D-2461-443E-AF88-B81C9EDA5C2E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryTicketShop", "ClassLibraryTicketShop\ClassLibraryTicketShop.csproj", "{931B8EBF-69FC-4D69-8479-3726AD182CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketShop_WebApplication", "TicketShop_WebApplication\TicketShop_WebApplication.csproj", "{44526072-70E0-42C3-9E53-D087CF10AE6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketShop_WebApplication", "TicketShop_WebApplication\TicketShop_WebApplication.csproj", "{44526072-70E0-42C3-9E53-D087CF10AE6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

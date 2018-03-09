@@ -1,48 +1,58 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Style the header */
+.header {
+    background-color: #2cd3c3;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
 .topnav {
-  overflow: hidden;
-  background-color: black;
+    overflow: hidden;
+    background-color: #333;
 }
 
+/* Style the topnav links */
 .topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
+/* Change color on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
+    background-color: #ddd;
+    color: black;
 }
 </style>
 </head>
 <body>
 
-<div class="topnav">
-  <a asp-controller="Home" asp-action="Venues">Add Venues</a>
-  <a asp-controller="Home" asp-action="Events">Add Events</a>
-  <a asp-controller="Home" asp-action="ShowAllEvents">Show and Delete All Events</a>
-  
+<div class="header">
+  <h1>Welcome to Awesome Tickets admins page!</h1>
 </div>
 
-<div style="padding-left:16px">
-  <h2>Welcome to Moster Gretas Admin Manager</h2>
+<div class="topnav">
+    <a asp-area="" asp-controller="Home" asp-action="Venues" class="navbar-brand">Add Venues</a>
+    <a asp-area="" asp-controller="Home" asp-action="Events" class="navbar-brand">Add Event</a>
+    <a asp-area="" asp-controller="Home" asp-action="ShowAllEvents" class="navbar-brand">Show and Delete events</a>
 </div>
 
 </body>
